@@ -3,6 +3,10 @@
    Archivo    : public/css/styles.css
    Metodología: BEM · Mobile First · CSS Variables · Sin frameworks
 
+   ESTÉTICA: "Editorial Institucional Mexicana"
+   Paleta: Azul profundo noche + Dorado institucional + Crema cálido
+   Tipografía: Playfair Display (heading) + Source Sans 3 (body)
+
    ESTRUCTURA DE SECCIONES:
      1.  Variables CSS (Design Tokens)
      2.  Reset y base
@@ -13,62 +17,46 @@
      7.  Estadísticas (.stats)
      8.  Nosotros / Misión (.about)
      9.  Programas académicos (.programs, .program-card)
-     10. Testimonios (.testimonials, .testimonial-card)
-     11. Galería (.gallery)
-     12. Formulario de contacto (.contact, .contact-form)
-     13. Mapa (.map-section)
-     14. Footer (.footer)
-     15. Responsive – Tablet (≥ 640px)
-     16. Responsive – Desktop (≥ 1024px)
-     17. Reducción de movimiento (accesibilidad)
-
-   METODOLOGÍA BEM:
-     Bloque  → .nombre-componente       (ej: .program-card)
-     Elemento → .bloque__elemento       (ej: .program-card__title)
-     Modificador → .bloque--variante   (ej: .program-card--featured)
-
-   MOBILE FIRST:
-     Los estilos base aplican a móviles (≤ 639px).
-     Las media queries con min-width agregan estilos para
-     pantallas más grandes, sobreescribiendo lo necesario.
+     10. ¿Por qué ICAPS? (.why)
+     11. Costos y Requisitos (.admissions)
+     12. Testimonios (.testimonials, .testimonial-card)
+     13. FAQ (.faq)
+     14. Formulario de contacto (.contact, .contact-form)
+     15. Mapa (.map-section)
+     16. Footer (.footer)
+     17. WhatsApp flotante
+     18. Scroll Reveal animations
+     19. Responsive – Tablet (≥ 640px)
+     20. Responsive – Desktop (≥ 1024px)
+     21. Reducción de movimiento (accesibilidad)
    ============================================================ */
 
 
 /* ──────────────────────────────────────────────────────────────
    1. VARIABLES CSS (Design Tokens)
-   Las variables CSS (custom properties) centralizan todos los
-   valores del diseño. Ventajas:
-     · Cambiar un color en :root lo actualiza en todo el sitio.
-     · Se pueden sobreescribir localmente en cualquier selector.
-     · Son accesibles desde JavaScript con getComputedStyle().
-   Prefijos usados:
-     --color-*       → colores de la paleta institucional
-     --font-*        → familias tipográficas
-     --text-*        → escala de tamaños de texto (rem)
-     --space-*       → escala de espaciado (rem, módulo de 4px)
-     --radius-*      → bordes redondeados
-     --shadow-*      → sombras multicapa para profundidad
-     --transition-*  → duraciones de transición reutilizables
-     --z-*           → niveles de apilamiento (z-index)
 ────────────────────────────────────────────────────────────── */
 :root {
-  /* Paleta institucional */
-  --color-primary:       #0277BD;   /* Azul acero */
-  --color-primary-dark:  #01579B;   /* Azul oscuro para hover */
-  --color-primary-light: #E1F5FE;   /* Azul muy claro para fondos */
-  --color-accent:        #FFA000;   /* Ámbar / llamadas a acción secundarias */
+  /* Paleta institucional – Editorial */
+  --color-primary:       #0A2647;   /* Azul profundo noche */
+  --color-primary-dark:  #061A33;   /* Azul más oscuro para hovers */
+  --color-primary-light: #E8EDF4;   /* Azul muy claro para fondos */
+  --color-primary-mid:   #144272;   /* Azul intermedio */
+  --color-accent:        #C9A84C;   /* Dorado institucional */
+  --color-accent-light:  #F0E6C8;   /* Dorado claro */
   --color-white:         #FFFFFF;
-  --color-bg:            #F7F9FC;   /* Fondo general suave */
-  --color-bg-alt:        #EEF4FB;   /* Fondo alternativo de secciones */
-  --color-text:          #1A2332;   /* Texto principal */
-  --color-text-muted:    #5C6B7A;   /* Texto secundario */
-  --color-border:        #D0DDE8;
+  --color-bg:            #FAFBFD;   /* Fondo general */
+  --color-bg-alt:        #F0F3F8;   /* Fondo alternativo */
+  --color-bg-warm:       #FBF7F0;   /* Fondo cálido mexicano */
+  --color-text:          #1A1F2B;   /* Texto principal */
+  --color-text-muted:    #5A6478;   /* Texto secundario */
+  --color-border:        #D4DCED;
   --color-success:       #2E7D32;
   --color-error:         #C62828;
 
   /* Tipografía */
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body:    'Open Sans', sans-serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Source Sans 3', 'Source Sans Pro', sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
 
   --text-xs:   0.75rem;    /*  12px */
   --text-sm:   0.875rem;   /*  14px */
@@ -79,6 +67,7 @@
   --text-3xl:  1.875rem;   /*  30px */
   --text-4xl:  2.25rem;    /*  36px */
   --text-5xl:  3rem;       /*  48px */
+  --text-6xl:  3.75rem;    /*  60px */
 
   /* Espaciado */
   --space-1:  0.25rem;
@@ -105,29 +94,27 @@
   --radius-xl:  1.5rem;
   --radius-full: 9999px;
 
-  --shadow-sm:  0 1px  3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
-  --shadow-md:  0 4px  6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
-  --shadow-lg:  0 10px 15px rgba(0,0,0,.08), 0 4px 6px rgba(0,0,0,.05);
-  --shadow-xl:  0 20px 25px rgba(0,0,0,.10), 0 10px 10px rgba(0,0,0,.04);
+  --shadow-sm:  0 1px  3px rgba(10,38,71,.06), 0 1px 2px rgba(10,38,71,.04);
+  --shadow-md:  0 4px  6px rgba(10,38,71,.06), 0 2px 4px rgba(10,38,71,.04);
+  --shadow-lg:  0 10px 25px rgba(10,38,71,.08), 0 4px 8px rgba(10,38,71,.04);
+  --shadow-xl:  0 20px 40px rgba(10,38,71,.10), 0 8px 16px rgba(10,38,71,.04);
+  --shadow-gold: 0 4px 20px rgba(201,168,76,.15);
 
   /* Transiciones */
   --transition-fast:   150ms ease;
-  --transition-base:   250ms ease;
-  --transition-slow:   400ms ease;
+  --transition-base:   300ms cubic-bezier(.4,0,.2,1);
+  --transition-slow:   500ms cubic-bezier(.4,0,.2,1);
+  --transition-spring: 600ms cubic-bezier(.34,1.56,.64,1);
 
   /* Z-index */
   --z-header: 100;
   --z-overlay: 200;
+  --z-whatsapp: 150;
 }
 
 
 /* ──────────────────────────────────────────────────────────────
    2. RESET Y BASE
-   Se usa el modelo de caja border-box para todos los elementos:
-   el padding y el borde se incluyen en el ancho/alto declarado,
-   evitando cálculos manuales de dimensiones.
-   -webkit-font-smoothing: antialiased mejora el renderizado de
-   fuentes en macOS/iOS con pantallas de alta densidad.
 ────────────────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -146,8 +133,9 @@ body {
   font-size: var(--text-base);
   color: var(--color-text);
   background-color: var(--color-bg);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img, svg {
@@ -156,12 +144,12 @@ img, svg {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-primary-mid);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 a:hover, a:focus-visible {
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
@@ -173,15 +161,16 @@ h1, h2, h3, h4 {
   color: var(--color-text);
 }
 
-/* focus visible global:
-   Solo muestra el anillo de enfoque cuando el usuario navega
-   con teclado o tecnología de asistencia (:focus-visible),
-   no cuando hace clic con el ratón. Esto mejora la apariencia
-   sin sacrificar la accesibilidad para usuarios de teclado. */
 :focus-visible {
-  outline: 3px solid var(--color-primary);
+  outline: 3px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
 }
 
 /* Skip link accesibilidad */
@@ -201,13 +190,6 @@ h1, h2, h3, h4 {
 
 /* ──────────────────────────────────────────────────────────────
    3. UTILIDADES
-   .container: envuelve el contenido en un ancho máximo con
-     padding lateral, centrado con margin-inline: auto.
-   .section: padding vertical uniforme para todas las secciones.
-   .section--alt: fondo alternativo para crear ritmo de lectura
-     (sección blanca → sección azul claro → sección blanca...).
-   .section__pretitle: texto pequeño en mayúsculas sobre el título,
-     una técnica de diseño que establece contexto antes del titular.
 ────────────────────────────────────────────────────────────── */
 .container {
   width: 100%;
@@ -224,26 +206,55 @@ h1, h2, h3, h4 {
   background-color: var(--color-bg-alt);
 }
 
+.section--warm {
+  background-color: var(--color-bg-warm);
+}
+
+.section--dark {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
 .section__header {
   text-align: center;
   margin-bottom: var(--space-12);
 }
 
 .section__pretitle {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-accent);
   margin-bottom: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.section__pretitle::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-accent);
 }
 
 .section__title {
   font-size: var(--text-3xl);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-text);
   margin-bottom: var(--space-4);
+  letter-spacing: -0.01em;
+}
+
+.section--dark .section__title {
+  color: var(--color-white);
+}
+
+.section--dark .section__pretitle {
+  color: var(--color-accent-light);
 }
 
 .section__subtitle {
@@ -251,25 +262,36 @@ h1, h2, h3, h4 {
   color: var(--color-text-muted);
   max-width: 640px;
   margin-inline: auto;
+  line-height: 1.8;
+}
+
+.section--dark .section__subtitle {
+  color: rgba(255,255,255,.7);
+}
+
+/* Decorative line under section titles */
+.section__header::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  margin: var(--space-6) auto 0;
+  border-radius: var(--radius-full);
 }
 
 
 /* ──────────────────────────────────────────────────────────────
    4. BOTONES
-   Clase base .btn más modificadores (.btn--primary, .btn--outline).
-   Se usa border-radius: var(--radius-full) para botones en forma
-   de "píldora" (círculo completo), estilo moderno minimalista.
-   El translateY(-2px) en hover da sensación de elevación sin
-   necesitar sombras muy prominentes.
 ────────────────────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-full);
-  font-family: var(--font-heading);
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 700;
   cursor: pointer;
@@ -282,16 +304,29 @@ h1, h2, h3, h4 {
     box-shadow var(--transition-base);
   white-space: nowrap;
   text-decoration: none;
+  letter-spacing: 0.02em;
 }
-.btn:hover  { transform: translateY(-2px); box-shadow: var(--shadow-md); text-decoration: none; }
+.btn:hover  { transform: translateY(-2px); box-shadow: var(--shadow-lg); text-decoration: none; }
 .btn:active { transform: translateY(0); }
 
 .btn--primary {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  border-color: var(--color-accent);
+}
+.btn--primary:hover, .btn--primary:focus-visible {
+  background-color: #D4B35A;
+  border-color: #D4B35A;
+  color: var(--color-primary-dark);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn--secondary {
   background-color: var(--color-primary);
   color: var(--color-white);
   border-color: var(--color-primary);
 }
-.btn--primary:hover, .btn--primary:focus-visible {
+.btn--secondary:hover, .btn--secondary:focus-visible {
   background-color: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
   color: var(--color-white);
@@ -300,70 +335,96 @@ h1, h2, h3, h4 {
 .btn--outline {
   background-color: transparent;
   color: var(--color-white);
-  border-color: var(--color-white);
+  border-color: rgba(255,255,255,.5);
 }
 .btn--outline:hover, .btn--outline:focus-visible {
   background-color: var(--color-white);
   color: var(--color-primary);
+  border-color: var(--color-white);
 }
 
 .btn--full { width: 100%; }
 
+/* Small variant */
+.btn--sm {
+  padding: 0.625rem 1.25rem;
+  font-size: var(--text-sm);
+}
+
 
 /* ──────────────────────────────────────────────────────────────
    5. HEADER / NAV
-   position: sticky hace que el header permanezca visible al hacer
-   scroll hacia abajo (a diferencia de position:fixed, no saca al
-   elemento del flujo normal del documento).
-   JavaScript añade .is-scrolled para intensificar la sombra
-   cuando la página ha bajado más de 10px.
 ────────────────────────────────────────────────────────────── */
 .header {
   position: sticky;
   top: 0;
   z-index: var(--z-header);
-  background-color: var(--color-white);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-base);
+  background-color: rgba(255,255,255,.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(10,38,71,.06);
+  transition: box-shadow var(--transition-base), background-color var(--transition-base);
 }
 
 .header.is-scrolled {
   box-shadow: var(--shadow-md);
+  background-color: rgba(255,255,255,.97);
 }
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 72px;
 }
 
 /* Logo */
 .nav__logo {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   font-family: var(--font-heading);
   font-size: var(--text-xl);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-primary);
   text-decoration: none;
   letter-spacing: -0.02em;
 }
 .nav__logo:hover { color: var(--color-primary-dark); text-decoration: none; }
-.nav__logo-icon { font-size: 1.5rem; }
 
-/* Menú: oculto en móvil como position:fixed que cubre toda
-   la pantalla desde debajo del header (inset: 70px 0 0).
-   JavaScript añade .is-open para hacerlo visible con display:flex.
-   body.overflow:hidden (aplicado desde JS) impide el scroll
-   del fondo mientras el menú móvil está abierto. */
+.nav__logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-mid));
+  color: var(--color-accent);
+  border-radius: var(--radius-md);
+  font-size: 1.2rem;
+}
+
+.nav__logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.nav__logo-sub {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Menú móvil */
 .nav__menu {
-  display: none;   /* Mobile: oculto por defecto */
+  display: none;
   flex-direction: column;
   gap: 0;
   position: fixed;
-  inset: 70px 0 0;
+  inset: 72px 0 0;
   background-color: var(--color-white);
   padding: var(--space-6) var(--space-5);
   border-top: 1px solid var(--color-border);
@@ -379,7 +440,7 @@ h1, h2, h3, h4 {
 .nav__link {
   display: block;
   padding: var(--space-4) 0;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 600;
   color: var(--color-text);
@@ -388,20 +449,21 @@ h1, h2, h3, h4 {
   transition: color var(--transition-fast);
 }
 .nav__link:last-child { border-bottom: none; }
-.nav__link:hover, .nav__link:focus-visible { color: var(--color-primary); text-decoration: none; }
+.nav__link:hover, .nav__link:focus-visible { color: var(--color-accent); text-decoration: none; }
 
 .nav__link--cta {
   margin-top: var(--space-4);
   padding: var(--space-3) var(--space-6);
-  background-color: var(--color-primary);
-  color: var(--color-white) !important;
-  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-accent), #D4B35A);
+  color: var(--color-primary-dark) !important;
+  border-radius: var(--radius-md);
   text-align: center;
   border-bottom: none;
+  font-weight: 700;
 }
 .nav__link--cta:hover, .nav__link--cta:focus-visible {
-  background-color: var(--color-primary-dark);
-  color: var(--color-white);
+  background: linear-gradient(135deg, #D4B35A, var(--color-accent));
+  color: var(--color-primary-dark);
 }
 
 /* Botón hamburguesa */
@@ -410,36 +472,30 @@ h1, h2, h3, h4 {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   padding: var(--space-2);
   background: none;
-  border: none;
+  border: 1.5px solid var(--color-border);
   cursor: pointer;
   border-radius: var(--radius-md);
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
 }
 .nav__toggle:hover, .nav__toggle:focus-visible {
   background-color: var(--color-bg);
+  border-color: var(--color-text-muted);
 }
 
 .nav__toggle-bar {
   display: block;
   width: 100%;
   height: 2px;
-  background-color: var(--color-text);
+  background-color: var(--color-primary);
   border-radius: var(--radius-full);
   transition: transform var(--transition-base), opacity var(--transition-fast);
   transform-origin: center;
 }
 
-/* Animación del ícono hamburguesa → X:
-   Las tres barras se transforman con CSS puro:
-   · Barra 1: se desplaza 7px hacia abajo + rota 45°.
-   · Barra 2: desaparece con opacidad 0 y escala 0.
-   · Barra 3: se desplaza 7px hacia arriba + rota -45°.
-   El resultado es una "X" formada por las barras 1 y 3.
-   transform-origin: center asegura la rotación desde el centro. */
 .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -454,40 +510,47 @@ h1, h2, h3, h4 {
 
 /* ──────────────────────────────────────────────────────────────
    6. HERO
-   Fondo: gradiente lineal de tres paradas de azul para dar
-   profundidad sin depender de una imagen. El .hero__overlay
-   es una capa separada con la imagen de fondo (opacity:0.1)
-   para que sea fácil reemplazar la imagen sin tocar el gradiente.
-   El patrón decorativo en ::before usa gradientes radiales
-   para circular luz tenue en las esquinas, técnica habitual
-   de diseño moderno que da textura sin ruido visual.
+   Gradiente mesh con capas decorativas geométricas
 ────────────────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 90vh;
+  min-height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background:
     linear-gradient(
-      135deg,
-      var(--color-primary-dark) 0%,
-      var(--color-primary) 60%,
-      #0288D1 100%
+      160deg,
+      #061A33 0%,
+      var(--color-primary) 40%,
+      var(--color-primary-mid) 100%
     );
-  padding-block: var(--space-20) var(--space-16);
+  padding-block: var(--space-24) var(--space-16);
   text-align: center;
 }
 
-/* Patrón decorativo de fondo */
+/* Patrón geométrico decorativo — evoca motivos aztecas sutiles */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 80%, rgba(255,255,255,.06) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,.06) 0%, transparent 50%);
+    radial-gradient(circle at 15% 85%, rgba(201,168,76,.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(201,168,76,.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.02) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Grid pattern overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size: 60px 60px;
   pointer-events: none;
 }
 
@@ -495,7 +558,7 @@ h1, h2, h3, h4 {
   position: absolute;
   inset: 0;
   background: url('../assets/images/hero/hero-bg.jpg') center/cover no-repeat;
-  opacity: 0.1;
+  opacity: 0.08;
   pointer-events: none;
 }
 
@@ -505,34 +568,58 @@ h1, h2, h3, h4 {
   max-width: 820px;
 }
 
-.hero__pretitle {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(201,168,76,.15);
+  border: 1px solid rgba(201,168,76,.3);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.75);
-  margin-bottom: var(--space-4);
+  color: var(--color-accent-light);
+  margin-bottom: var(--space-6);
+  backdrop-filter: blur(8px);
+}
+
+.hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.5); }
 }
 
 .hero__title {
   font-size: var(--text-4xl);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-white);
-  line-height: 1.15;
+  line-height: 1.1;
   margin-bottom: var(--space-6);
+  letter-spacing: -0.02em;
 }
 
 .hero__title--highlight {
   color: var(--color-accent);
+  font-style: italic;
 }
 
 .hero__subtitle {
   font-size: var(--text-lg);
-  color: rgba(255,255,255,.85);
-  max-width: 600px;
+  color: rgba(255,255,255,.75);
+  max-width: 580px;
   margin-inline: auto;
   margin-bottom: var(--space-10);
+  line-height: 1.8;
 }
 
 .hero__actions {
@@ -542,10 +629,26 @@ h1, h2, h3, h4 {
   align-items: center;
 }
 
-/* Flecha de scroll con animación bounce:
-   La flecha es un elemento vacío cuyas dos esquinas (border-right
-   + border-bottom) rotadas 45° forman una «hecha» hacia abajo.
-   La animación @keyframes bounce crea el movimiento vertical cclico. */
+.hero__trust {
+  margin-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,.45);
+  letter-spacing: 0.05em;
+}
+
+.hero__trust-icons {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,.5);
+}
+
+/* Scroll hint */
 .hero__scroll-hint {
   position: absolute;
   bottom: var(--space-8);
@@ -556,23 +659,23 @@ h1, h2, h3, h4 {
   justify-content: center;
   width: 40px;
   height: 40px;
-  border: 2px solid rgba(255,255,255,.4);
+  border: 1.5px solid rgba(255,255,255,.2);
   border-radius: var(--radius-full);
-  animation: bounce 2s infinite;
+  animation: bounce 2.5s infinite;
   text-decoration: none;
 }
 .hero__scroll-arrow {
   display: block;
   width: 10px;
   height: 10px;
-  border-right: 2px solid rgba(255,255,255,.7);
-  border-bottom: 2px solid rgba(255,255,255,.7);
+  border-right: 1.5px solid rgba(255,255,255,.5);
+  border-bottom: 1.5px solid rgba(255,255,255,.5);
   transform: rotate(45deg) translateY(-2px);
 }
 
 @keyframes bounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(6px); }
+  50%       { transform: translateX(-50%) translateY(8px); }
 }
 
 
@@ -580,34 +683,58 @@ h1, h2, h3, h4 {
    7. ESTADÍSTICAS
 ────────────────────────────────────────────────────────────── */
 .stats {
-  background-color: var(--color-primary);
-  padding-block: var(--space-10);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-mid) 100%);
+  padding-block: var(--space-12);
+  position: relative;
+}
+
+.stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,.03) 0px,
+    rgba(255,255,255,.03) 1px,
+    transparent 1px,
+    transparent 80px
+  );
+  pointer-events: none;
 }
 
 .stats__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
+  position: relative;
 }
 
 .stats__item {
   text-align: center;
+  padding: var(--space-4);
+}
+
+.stats__icon {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2);
+  opacity: .7;
 }
 
 .stats__number {
   display: block;
   font-family: var(--font-heading);
   font-size: var(--text-4xl);
-  font-weight: 800;
-  color: var(--color-white);
+  font-weight: 700;
+  color: var(--color-accent);
   line-height: 1;
 }
 
 .stats__label {
   display: block;
   font-size: var(--text-sm);
-  color: rgba(255,255,255,.8);
-  margin-top: var(--space-1);
+  color: rgba(255,255,255,.7);
+  margin-top: var(--space-2);
+  font-weight: 500;
 }
 
 
@@ -624,27 +751,23 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
+  position: relative;
 }
 
-.about__image-placeholder {
-  aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-bg-alt));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
-  color: var(--color-text-muted);
-  font-size: var(--text-xl);
-  border: 2px dashed var(--color-border);
+.about__image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   border-radius: var(--radius-xl);
+  border: 2px solid rgba(201,168,76,.2);
+  pointer-events: none;
 }
 
 .about__text {
   font-size: var(--text-lg);
   color: var(--color-text-muted);
   margin-bottom: var(--space-8);
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 .about__values {
@@ -657,29 +780,44 @@ h1, h2, h3, h4 {
   display: flex;
   gap: var(--space-4);
   align-items: flex-start;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  transition: background-color var(--transition-base);
+}
+
+.about__value:hover {
+  background-color: var(--color-primary-light);
 }
 
 .about__value-icon {
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--color-accent-light), rgba(201,168,76,.2));
+  border-radius: var(--radius-md);
+  font-size: 1.4rem;
   flex-shrink: 0;
-  line-height: 1;
 }
 
 .about__value-title {
+  font-family: var(--font-heading);
   font-size: var(--text-base);
   font-weight: 700;
   color: var(--color-primary);
   margin-bottom: var(--space-1);
 }
 
+.about__value p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
 
 /* ──────────────────────────────────────────────────────────────
-   9. PROGRAMAS ACADÉMICOS (FEATURES)
-   Las tarjetas usan Flexbox con flex-direction:column para que
-   el botón CTA siempre quede al fondo de la tarjeta,
-   independientemente del alto del contenido de cada una.
-   .program-card--featured usa el modificador BEM para aplicar
-   estilos adicionales sin duplicar reglas base.
+   9. PROGRAMAS ACADÉMICOS
 ────────────────────────────────────────────────────────────── */
 .programs__grid {
   display: grid;
@@ -698,32 +836,62 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-sm);
   transition:
     transform var(--transition-base),
-    box-shadow var(--transition-base);
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+  overflow: hidden;
 }
 .program-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-xl);
+  border-color: var(--color-accent);
+}
+
+/* Glassmorphism accent on hover */
+.program-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+.program-card:hover::before {
+  opacity: 1;
 }
 
 .program-card--featured {
-  border-color: var(--color-primary);
+  border-color: rgba(201,168,76,.3);
   border-width: 2px;
-  background: linear-gradient(160deg, var(--color-white) 70%, var(--color-primary-light));
+  background: linear-gradient(170deg, var(--color-white) 60%, var(--color-accent-light) 100%);
+}
+.program-card--featured::before {
+  opacity: 1;
 }
 
 .program-card__badge {
   position: absolute;
   top: -1px;
   right: var(--space-6);
-  background-color: var(--color-accent);
-  color: var(--color-text);
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: var(--text-xs);
   font-weight: 700;
   padding: var(--space-1) var(--space-3);
   border-radius: 0 0 var(--radius-md) var(--radius-md);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+}
+
+.program-card__badge--sabado {
+  background: linear-gradient(135deg, var(--color-accent), #D4B35A);
+  color: var(--color-primary-dark);
+}
+
+.program-card__badge--domingo {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-mid));
+  color: var(--color-white);
 }
 
 .program-card__icon {
@@ -734,70 +902,196 @@ h1, h2, h3, h4 {
 .program-card__title {
   font-size: var(--text-xl);
   font-weight: 700;
+  color: var(--color-primary);
 }
 
 .program-card__level {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-accent);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 .program-card__desc {
   font-size: var(--text-base);
   color: var(--color-text-muted);
   line-height: 1.7;
-}
-
-.program-card__features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
   flex: 1;
-}
-
-.program-card__features li {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  padding-left: var(--space-5);
-  position: relative;
-}
-.program-card__features li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--color-primary);
-  font-weight: 700;
 }
 
 .program-card__cta {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-heading);
+  gap: var(--space-2);
+  font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-accent);
   text-decoration: none;
   margin-top: auto;
   transition: gap var(--transition-fast), color var(--transition-fast);
 }
 .program-card__cta:hover, .program-card__cta:focus-visible {
-  color: var(--color-primary-dark);
-  gap: var(--space-2);
+  color: var(--color-primary);
+  gap: var(--space-3);
   text-decoration: none;
 }
 
 
 /* ──────────────────────────────────────────────────────────────
-   10. TESTIMONIOS
-   Se usa <blockquote> semántico. El decorado de comillas
-   (::before) se crea con el caracter Unicode \201C (“)
-   posicionado absolutamente en la esquina superior derecha,
-   grande y con el color primary-light para que sea decorativo
-   sin competir con el texto. pointer-events:none evita que
-   el pseudo-elemento bloquee clics o selección de texto.
+   10. ¿POR QUÉ ICAPS?
+────────────────────────────────────────────────────────────── */
+.why__grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.why-card {
+  text-align: center;
+  padding: var(--space-8) var(--space-6);
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.why-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-bg));
+  margin-bottom: var(--space-5);
+  font-size: 1.75rem;
+  transition: transform var(--transition-spring);
+}
+
+.why-card:hover .why-card__icon {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+.why-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+
+.why-card__text {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+   11. COSTOS Y REQUISITOS
+────────────────────────────────────────────────────────────── */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  border-top: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+.info-card h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.cost-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid rgba(212,219,237,.5);
+  font-size: var(--text-base);
+}
+.cost-item:last-child {
+  border-bottom: none;
+}
+.cost-item span:last-child {
+  font-weight: 700;
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+.cost-item--highlight {
+  border-top: 2px dashed var(--color-accent-light);
+  margin-top: var(--space-2);
+  border-bottom: none;
+}
+.cost-item--highlight span:last-child {
+  color: var(--color-accent);
+  font-size: var(--text-xl);
+  font-weight: 800;
+}
+
+.req-list {
+  list-style: none;
+  padding: 0;
+}
+.req-list li {
+  padding: var(--space-3) 0;
+  padding-left: var(--space-8);
+  position: relative;
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+.req-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  font-weight: 900;
+  font-size: var(--text-xs);
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+   12. TESTIMONIOS
 ────────────────────────────────────────────────────────────── */
 .testimonials__grid {
   display: grid;
@@ -809,19 +1103,34 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-xl);
   padding: var(--space-8);
   box-shadow: var(--shadow-md);
-  border-left: 4px solid var(--color-primary);
+  border-left: 4px solid var(--color-accent);
   position: relative;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
 .testimonial-card::before {
   content: '\201C';
   position: absolute;
   top: var(--space-4);
   right: var(--space-6);
   font-size: 5rem;
-  font-family: Georgia, serif;
-  color: var(--color-primary-light);
+  font-family: var(--font-heading);
+  color: var(--color-accent-light);
   line-height: 1;
   pointer-events: none;
+}
+
+.testimonial-card__stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: var(--space-3);
+  color: var(--color-accent);
+  font-size: var(--text-base);
 }
 
 .testimonial-card__text {
@@ -842,8 +1151,8 @@ h1, h2, h3, h4 {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-full);
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-mid));
+  color: var(--color-accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -871,60 +1180,90 @@ h1, h2, h3, h4 {
 
 
 /* ──────────────────────────────────────────────────────────────
-   11. GALERÍA
+   13. FAQ (Preguntas Frecuentes)
 ────────────────────────────────────────────────────────────── */
-.gallery__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  gap: var(--space-4);
-}
-
-.gallery__item {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  margin: 0;
-  cursor: pointer;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-.gallery__item:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-xl);
-}
-
-.gallery__item--large {
-  grid-column: span 2;
-}
-
-.gallery__placeholder {
-  aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-bg));
+.faq__list {
+  max-width: 800px;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
+  gap: var(--space-3);
+}
+
+.faq-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.faq-item.is-open {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.faq-item__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: left;
+  transition: color var(--transition-fast);
+}
+
+.faq-item__question:hover {
+  color: var(--color-primary);
+}
+
+.faq-item__icon {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
-  color: var(--color-text-muted);
-  border: 2px dashed var(--color-border);
-  font-size: var(--text-3xl);
-  text-align: center;
-  padding: var(--space-4);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  flex-shrink: 0;
+  transition: transform var(--transition-base), background-color var(--transition-base);
 }
-.gallery__placeholder p {
-  font-size: var(--text-sm);
-  font-weight: 600;
+
+.faq-item.is-open .faq-item__icon {
+  transform: rotate(180deg);
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-slow);
+}
+
+.faq-item.is-open .faq-item__answer {
+  max-height: 300px;
+}
+
+.faq-item__answer-inner {
+  padding: 0 var(--space-6) var(--space-6);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.8;
 }
 
 
 /* ──────────────────────────────────────────────────────────────
-   12. FORMULARIO DE CONTACTO
-   appearance:none en inputs, select y textarea elimina todos los
-   estilos nativos del navegador (bordes, fondos, flechas del
-   select) para poder aplicar diseño consistente en todos los
-   navegadores. La flecha del select se recrea manualmente
-   con background-image usando un SVG inline codificado.
-   accent-color en el checkbox añade el color de marca
-   al indicador de selección nativo manteníendo accesibilidad.
+   14. FORMULARIO DE CONTACTO
 ────────────────────────────────────────────────────────────── */
 .contact__grid {
   display: grid;
@@ -952,8 +1291,14 @@ h1, h2, h3, h4 {
 }
 
 .contact__detail-icon {
-  font-size: 1.5rem;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--color-primary-light);
+  border-radius: var(--radius-md);
+  font-size: 1.2rem;
   flex-shrink: 0;
 }
 
@@ -971,6 +1316,11 @@ h1, h2, h3, h4 {
   color: var(--color-text-muted);
 }
 
+.contact__detail a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
 /* Formulario */
 .contact-form {
   background-color: var(--color-white);
@@ -980,6 +1330,7 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
+  border: 1px solid var(--color-border);
 }
 
 .form-group {
@@ -994,13 +1345,13 @@ h1, h2, h3, h4 {
 }
 
 .form-label {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text);
 }
 .form-label span {
-  color: var(--color-error);
+  color: var(--color-accent);
   margin-left: var(--space-1);
 }
 
@@ -1008,7 +1359,7 @@ h1, h2, h3, h4 {
 .form-select,
 .form-textarea {
   width: 100%;
-  padding: 0.75rem var(--space-4);
+  padding: 0.875rem var(--space-4);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
   font-family: var(--font-body);
@@ -1023,7 +1374,7 @@ h1, h2, h3, h4 {
 }
 
 .form-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235C6B7A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235A6478' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
@@ -1039,8 +1390,8 @@ h1, h2, h3, h4 {
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(2, 119, 189, 0.15);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(201,168,76,.12);
 }
 
 .form-input.is-error,
@@ -1050,7 +1401,7 @@ h1, h2, h3, h4 {
 }
 .form-input.is-error:focus,
 .form-select.is-error:focus {
-  box-shadow: 0 0 0 3px rgba(198, 40, 40, .15);
+  box-shadow: 0 0 0 3px rgba(198,40,40,.12);
 }
 
 .form-input.is-valid,
@@ -1061,13 +1412,8 @@ h1, h2, h3, h4 {
 .form-error {
   font-size: var(--text-xs);
   color: var(--color-error);
-  font-weight: 500;
+  font-weight: 600;
   min-height: 1em;
-}
-
-.form-hint {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
 }
 
 .form-checkbox-label {
@@ -1085,11 +1431,10 @@ h1, h2, h3, h4 {
   height: 18px;
   flex-shrink: 0;
   margin-top: 2px;
-  accent-color: var(--color-primary);
+  accent-color: var(--color-accent);
   cursor: pointer;
 }
 
-/* Feedback del formulario */
 .form-feedback {
   padding: var(--space-4);
   border-radius: var(--radius-md);
@@ -1110,7 +1455,7 @@ h1, h2, h3, h4 {
 
 
 /* ──────────────────────────────────────────────────────────────
-   13. MAPA
+   15. MAPA
 ────────────────────────────────────────────────────────────── */
 .map-section {
   background-color: var(--color-white);
@@ -1131,56 +1476,50 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   display: block;
+  filter: saturate(.8) contrast(1.05);
 }
-
-.map-section__placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-bg-alt));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-4);
-  border-top: 2px dashed var(--color-border);
-  font-size: 3rem;
-  color: var(--color-text-muted);
-  text-align: center;
-  padding: var(--space-8);
-}
-.map-section__placeholder p { font-size: var(--text-lg); font-weight: 600; }
-.map-section__placeholder small { font-size: var(--text-sm); max-width: 360px; }
 
 
 /* ──────────────────────────────────────────────────────────────
-   14. FOOTER
+   16. FOOTER
 ────────────────────────────────────────────────────────────── */
 .footer {
-  background-color: #0D1B2A;
-  color: rgba(255,255,255,.75);
+  background-color: #061A2E;
+  color: rgba(255,255,255,.7);
   padding-top: var(--space-16);
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
 }
 
 .footer__grid {
   display: grid;
   gap: var(--space-10);
   padding-bottom: var(--space-12);
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .footer__logo {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   font-family: var(--font-heading);
   font-size: var(--text-xl);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-white);
   text-decoration: none;
   margin-bottom: var(--space-4);
 }
 .footer__logo:hover { color: var(--color-accent); text-decoration: none; }
-.footer__logo-icon { font-size: 1.5rem; }
+.footer__logo-icon { font-size: 1.5rem; color: var(--color-accent); }
 
 .footer__tagline {
   font-size: var(--text-sm);
@@ -1200,24 +1539,24 @@ h1, h2, h3, h4 {
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-full);
-  background-color: rgba(255,255,255,.1);
-  color: rgba(255,255,255,.75);
+  border-radius: var(--radius-md);
+  background-color: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.6);
   transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 .footer__social-link:hover, .footer__social-link:focus-visible {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
   text-decoration: none;
 }
 
 .footer__nav-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--color-accent);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   margin-bottom: var(--space-5);
 }
 
@@ -1228,12 +1567,13 @@ h1, h2, h3, h4 {
 }
 .footer__nav-list a {
   font-size: var(--text-sm);
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.55);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
 }
 .footer__nav-list a:hover, .footer__nav-list a:focus-visible {
   color: var(--color-white);
+  padding-left: var(--space-2);
   text-decoration: none;
 }
 
@@ -1244,12 +1584,12 @@ h1, h2, h3, h4 {
   gap: var(--space-4);
 }
 .footer__address p { font-size: var(--text-sm); line-height: 1.7; }
-.footer__address a { color: rgba(255,255,255,.65); }
-.footer__address a:hover { color: var(--color-white); }
+.footer__address a { color: rgba(255,255,255,.55); }
+.footer__address a:hover { color: var(--color-accent); text-decoration: none; }
 
 .footer__bottom {
   padding-block: var(--space-6);
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0,0,0,.25);
 }
 
 .footer__bottom-inner {
@@ -1259,18 +1599,99 @@ h1, h2, h3, h4 {
   align-items: center;
   text-align: center;
   font-size: var(--text-xs);
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.3);
 }
 
 
 /* ──────────────────────────────────────────────────────────────
-   15. RESPONSIVE – TABLET (≥ 640px)
-   Estrategia Mobile First:
-     Los estilos base cubren móviles (una columna, texto grande).
-     Esta media query ajusta el layout para tablets: se ampliarán
-     las grids a 2 columnas, los botones se alinean en fila, etc.
-     Se usa min-width (no max-width) para que los móviles
-     hereden los estilos base sin media queries adicionales.
+   17. WHATSAPP FLOTANTE
+────────────────────────────────────────────────────────────── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: var(--z-whatsapp);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+}
+
+.whatsapp-float__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 20px rgba(37,211,102,.35);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.whatsapp-float:hover .whatsapp-float__btn {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,.4);
+}
+
+.whatsapp-float__label {
+  display: none;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-white);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+   18. SCROLL REVEAL ANIMATIONS
+────────────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--delay-1 { transition-delay: 100ms; }
+.reveal--delay-2 { transition-delay: 200ms; }
+.reveal--delay-3 { transition-delay: 300ms; }
+.reveal--delay-4 { transition-delay: 400ms; }
+.reveal--delay-5 { transition-delay: 500ms; }
+
+.reveal--left {
+  transform: translateX(-30px) translateY(0);
+}
+.reveal--left.is-visible {
+  transform: translateX(0) translateY(0);
+}
+
+.reveal--right {
+  transform: translateX(30px) translateY(0);
+}
+.reveal--right.is-visible {
+  transform: translateX(0) translateY(0);
+}
+
+.reveal--scale {
+  transform: scale(0.95);
+}
+.reveal--scale.is-visible {
+  transform: scale(1);
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+   19. RESPONSIVE – TABLET (≥ 640px)
 ────────────────────────────────────────────────────────────── */
 @media (min-width: 640px) {
   :root {
@@ -1287,27 +1708,30 @@ h1, h2, h3, h4 {
   /* Programs */
   .programs__grid { grid-template-columns: repeat(2, 1fr); }
 
+  /* Why */
+  .why__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Info grid */
+  .info-grid { grid-template-columns: 1fr 1fr; }
+
   /* Testimonios */
   .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* Galería */
-  .gallery__grid { grid-template-columns: repeat(3, 1fr); }
-  .gallery__item--large { grid-column: span 3; }
 
   /* Footer */
   .footer__grid { grid-template-columns: repeat(2, 1fr); }
   .footer__bottom-inner { flex-direction: row; justify-content: space-between; }
+
+  /* WhatsApp label visible */
+  .whatsapp-float__label { display: block; }
 }
 
 
 /* ──────────────────────────────────────────────────────────────
-   16. RESPONSIVE – DESKTOP (≥ 1024px)
-   En escritorio el menú móvil desaparece (.nav__toggle:none)
-   y el .nav__menu se fuerza a display:flex con position:static
-   para integrarse al flujo normal del header.
-   Las grids de 2 columnas se expanden a 3 o 4 columnas.
+   20. RESPONSIVE – DESKTOP (≥ 1024px)
 ────────────────────────────────────────────────────────────── */
 @media (min-width: 1024px) {
+  .hero__title { font-size: var(--text-6xl); }
+
   /* Nav: modo escritorio */
   .nav__toggle { display: none; }
 
@@ -1315,7 +1739,7 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: row;
     position: static;
-    gap: var(--space-2);
+    gap: var(--space-1);
     background: none;
     padding: 0;
     border: none;
@@ -1330,19 +1754,38 @@ h1, h2, h3, h4 {
     border-radius: var(--radius-md);
     font-size: var(--text-sm);
     color: var(--color-text);
+    position: relative;
   }
-  .nav__link:hover { background-color: var(--color-bg); }
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width var(--transition-base), left var(--transition-base);
+  }
+  .nav__link:hover::after {
+    width: 60%;
+    left: 20%;
+  }
+  .nav__link:hover { background-color: transparent; color: var(--color-primary); }
 
   .nav__link--cta {
     padding: 0.5rem 1.25rem;
     margin-top: 0;
   }
+  .nav__link--cta::after { display: none; }
 
   /* About */
-  .about__grid      { grid-template-columns: 1fr 1fr; }
+  .about__grid { grid-template-columns: 1fr 1fr; }
 
   /* Programs: 3 columnas */
-  .programs__grid   { grid-template-columns: repeat(3, 1fr); }
+  .programs__grid { grid-template-columns: repeat(3, 1fr); }
+
+  /* Why: 4 columnas */
+  .why__grid { grid-template-columns: repeat(4, 1fr); }
 
   /* Testimonios: 3 columnas */
   .testimonials__grid { grid-template-columns: repeat(3, 1fr); }
@@ -1356,13 +1799,7 @@ h1, h2, h3, h4 {
 
 
 /* ──────────────────────────────────────────────────────────────
-   17. REDUCCIÓN DE MOVIMIENTO (accesibilidad)
-   Algunos usuarios tienen configurado «Reducir movimiento» en
-   su sistema operativo por razones médicas (mareo, epilepsia).
-   Esta media query desactiva TODAS las animaciones y transiciones
-   para esos usuarios, reemplazándolas con cambios instantáneos.
-   scroll-behavior:auto desactiva el desplazamiento suave del HTML.
-   IMPORTANTE: nunca omitas esta regla en sitios con animaciones.
+   21. REDUCCIÓN DE MOVIMIENTO (accesibilidad)
 ────────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1370,4 +1807,9 @@ h1, h2, h3, h4 {
     transition-duration: 0.01ms !important;
   }
   html { scroll-behavior: auto; }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
