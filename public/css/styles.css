@@ -85,7 +85,7 @@
 
   /* Layout */
   --container-max: 1200px;
-  --container-padding: var(--space-5);
+  --container-padding: var(--space-4); /* Reducido para móviles */
 
   /* Bordes y sombras */
   --radius-sm:  0.25rem;
@@ -651,13 +651,14 @@ h1, h2, h3, h4 {
 
 .hero__title-brand {
   font-family: var(--font-heading);
-  font-size: clamp(3rem, 12vw, 5rem);
+  font-size: clamp(2.5rem, 10vw, 5rem);
   font-weight: 800;
   color: #FFEA00; /* Amarillo vibrante */
-  margin-top: var(--space-1);
-  margin-bottom: var(--space-1);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
   letter-spacing: -0.02em;
   text-shadow: 0 0 30px rgba(255, 234, 0, 0.15);
+  line-height: 1;
 }
 
 .hero__subtitle {
@@ -1894,38 +1895,77 @@ h1, h2, h3, h4 {
 ────────────────────────────────────────────────────────────── */
 @media (min-width: 640px) {
   :root {
-    --container-padding: var(--space-8);
+    --container-padding: var(--space-6);
   }
 
   /* Hero */
-  .hero__title    { font-size: var(--text-5xl); }
-  .hero__dual-cta { grid-template-columns: repeat(2, 1fr); max-width: 900px; margin-left: auto; margin-right: auto; }
+  .hero__title    { font-size: var(--text-4xl); }
+  .hero__dual-cta { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
 
   /* Stats */
-  .stats__grid { grid-template-columns: repeat(4, 1fr); }
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
 
   /* Programs */
-  .programs__grid { grid-template-columns: repeat(2, 1fr); }
+  .programs__grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
 
   /* Why */
   .why__grid { grid-template-columns: repeat(2, 1fr); }
 
   /* Info grid */
-  .info-grid { grid-template-columns: 1fr 1fr; }
+  .info-grid { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
 
   /* Testimonios */
-  .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials__grid { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
 
   /* Footer */
   .footer__grid { grid-template-columns: repeat(2, 1fr); }
   .footer__bottom-inner { flex-direction: row; justify-content: space-between; }
 
   /* Social section */
-  .social-section__links { grid-template-columns: repeat(3, 1fr); }
-  .social-card { flex-direction: column; text-align: center; }
+  .social-section__links { grid-template-columns: repeat(2, 1fr); }
+  .social-card { flex-direction: row; text-align: left; }
 
   /* WhatsApp label visible */
   .whatsapp-float__label { display: block; }
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+   19.5. RESPONSIVE – TABLET LARGE (≥ 768px)
+────────────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: var(--space-8);
+  }
+
+  /* Hero */
+  .hero__title    { font-size: var(--text-5xl); }
+  .hero__dual-cta { grid-template-columns: repeat(2, 1fr); max-width: 900px; }
+
+  /* Stats */
+  .stats__grid { grid-template-columns: repeat(4, 1fr); }
+
+  /* Programs */
+  .programs__grid { grid-template-columns: repeat(2, 1fr); max-width: none; }
+
+  /* Why */
+  .why__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Info grid */
+  .info-grid { grid-template-columns: repeat(2, 1fr); max-width: none; }
+
+  /* Testimonios */
+  .testimonials__grid { grid-template-columns: repeat(2, 1fr); max-width: none; }
+
+  /* Contacto */
+  .contact__grid { grid-template-columns: 1fr; max-width: 800px; margin-left: auto; margin-right: auto; }
+  
+  /* Footer */
+  .footer__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Social section */
+  .social-section__links { grid-template-columns: repeat(3, 1fr); }
+  .social-card { flex-direction: column; text-align: center; }
 }
 
 
