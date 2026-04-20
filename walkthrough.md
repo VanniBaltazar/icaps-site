@@ -65,7 +65,7 @@ Se realizó una optimización integral de la landing page de ICAPS Sede Madero e
 - locale `es_MX`, imágenes de 1200×630, descripciones localizadas
 
 **Canonical + hreflang:**
-- `<link rel="canonical" href="https://icaps.edu.mx/">`
+- `<link rel="canonical" href="https://www.icaps-edu.com/">`
 - `<link rel="alternate" hreflang="es-MX">`
 
 ---
