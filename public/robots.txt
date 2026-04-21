@@ -1,0 +1,10 @@
+# ICAPS Sede Madero – Veracruz
+# https://www.icaps-edu.com
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.icaps-edu.com/sitemap.xml
