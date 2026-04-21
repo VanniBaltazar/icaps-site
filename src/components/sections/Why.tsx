@@ -29,8 +29,12 @@ const BENEFICIOS = [
 
 export function Why() {
   return (
-    <section className="section section--warm" id="por-que" aria-labelledby="why-title">
-      <div className="container">
+    <section className="relative overflow-hidden section section--warm" id="por-que" aria-labelledby="why-title">
+      {/* Marca de agua - Logo */}
+      <div className="absolute -left-20 top-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none select-none z-0 -rotate-12">
+        <img src="/logo.png" alt="" width={500} height={500} />
+      </div>
+      <div className="container relative z-10">
         <header className="section__header">
           <p className="section__pretitle">Ventajas de estudiar aquí</p>
           <h2 className="section__title" id="why-title">¿Por qué elegir ICAPS Sede Madero?</h2>

@@ -21,8 +21,12 @@ const VALORES = [
 
 export function About() {
   return (
-    <section className="about section" id="nosotros" aria-labelledby="about-title">
-      <div className="container grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <section className="relative overflow-hidden about section" id="nosotros" aria-labelledby="about-title">
+      {/* Marca de agua - Logo */}
+      <div className="absolute top-1/2 -right-20 -translate-y-1/2 opacity-[0.03] pointer-events-none select-none z-0 rotate-12">
+        <Image src="/logo.png" alt="" width={600} height={600} />
+      </div>
+      <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
         {/* Imagen del campus — optimizada con next/image */}
         <div className="reveal reveal--left rounded-2xl overflow-hidden relative shadow-xl">

@@ -80,41 +80,41 @@ export function Hero() {
         </p>
 
         {/* Cards duales CTA — Licenciaturas y Preparatoria */}
-        <div className="reveal reveal--delay-3 grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 w-full max-w-[900px] mx-auto">
+        <div className="reveal reveal--delay-3 grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 w-full max-w-[900px] mx-auto items-stretch">
 
           {/* Card Licenciaturas */}
           <article
-            className="rounded-2xl p-6 text-left flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1"
+            className="flex flex-col justify-between p-8 text-left transition-all duration-300 rounded-2xl hover:-translate-y-1 hover:shadow-2xl group"
             style={{
-              background: 'rgba(255,255,255,.05)',
+              background: 'rgba(255,255,255,.07)',
               border: '1px solid rgba(255,255,255,.1)',
-              borderLeft: '4px solid var(--color-accent)',
-              backdropFilter: 'blur(10px)',
+              borderLeft: '5px solid var(--color-accent)',
+              backdropFilter: 'blur(12px)',
             }}
           >
             <div>
-              <h3 className="font-heading text-2xl text-white mb-2">Licenciaturas</h3>
-              <p className="text-base mb-6" style={{ color: 'rgba(255,255,255,.7)' }}>
-                Clases Sabatinas o Dominicales. Termina tu carrera sin dejar de trabajar.
+              <h3 className="mb-3 text-2xl text-white font-heading">Licenciaturas</h3>
+              <p className="mb-8 text-base leading-relaxed" style={{ color: 'rgba(255,255,255,.75)' }}>
+                Clases Sabatinas o Dominicales. Termina tu carrera sin dejar de trabajar con validez oficial.
               </p>
             </div>
-            <a href="#programas" className="btn btn--primary self-start">Ver Carreras</a>
+            <a href="#programas" className="btn btn--primary self-start shadow-gold">Ver Carreras</a>
           </article>
 
           {/* Card Preparatoria */}
           <article
-            className="rounded-2xl p-6 text-left flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1"
+            className="flex flex-col justify-between p-8 text-left transition-all duration-300 rounded-2xl hover:-translate-y-1 hover:shadow-2xl group"
             style={{
-              background: 'rgba(255,255,255,.05)',
+              background: 'rgba(255,255,255,.07)',
               border: '1px solid rgba(255,255,255,.1)',
-              borderLeft: '4px solid var(--color-accent-light)',
-              backdropFilter: 'blur(10px)',
+              borderLeft: '5px solid var(--color-accent-light)',
+              backdropFilter: 'blur(12px)',
             }}
           >
             <div>
-              <h3 className="font-heading text-2xl text-white mb-2">Preparatoria</h3>
-              <p className="text-base mb-6" style={{ color: 'rgba(255,255,255,.7)' }}>
-                Diferentes modalidades y horarios. Termina tu bachillerato ahora.
+              <h3 className="mb-3 text-2xl text-white font-heading">Preparatoria</h3>
+              <p className="mb-8 text-base leading-relaxed" style={{ color: 'rgba(255,255,255,.75)' }}>
+                Diferentes modalidades y horarios (escolarizado, sabatino, examen único). Tu bachillerato ahora.
               </p>
             </div>
             <a href="#preparatoria" className="btn btn--outline self-start">Ver Modalidades</a>
