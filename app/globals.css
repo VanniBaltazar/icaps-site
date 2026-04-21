@@ -157,3 +157,405 @@ img {
 .animate-pulse {
   animation: pulse 3s infinite;
 }
+
+
+/* =====================================================================
+   ICAPS SEDE MADERO — ESTILOS NUEVOS PARA styles.css
+   =====================================================================
+   INSTRUCCIONES: Pega TODO este bloque al FINAL de tu archivo styles.css
+   ===================================================================== */
+
+
+/* ─────────────────────────────────────────────────────────────────────
+   VARIABLES DE COLOR
+   Si ya tienes variables CSS (--color-primary, etc.) en tu archivo,
+   omite este bloque y asegúrate de que coincidan con las de abajo.
+   ───────────────────────────────────────────────────────────────────── */
+:root {
+  --icaps-verde:       #25D366;   /* Verde WhatsApp oficial */
+  --icaps-verde-hover: #1ebe5d;   /* Verde más oscuro para hover */
+  --icaps-primario:    #1a3a6e;   /* Azul institucional ICAPS */
+  --icaps-acento:      #e8a020;   /* Dorado para destacados */
+  --icaps-texto:       #2d2d2d;   /* Texto principal */
+  --icaps-fondo-suave: #f4f6fb;   /* Fondo sutil para secciones */
+  --radio-tarjeta:     14px;
+  --sombra-suave:      0 4px 24px rgba(0, 0, 0, 0.08);
+  --sombra-hover:      0 8px 40px rgba(0, 0, 0, 0.14);
+  --transicion:        0.28s cubic-bezier(.4, 0, .2, 1);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   BOTÓN FLOTANTE DE WHATSAPP
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Posición fija en la esquina inferior derecha */
+.whatsapp-flotante {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;                 /* Siempre encima de todo el contenido */
+
+  /* Apariencia del botón circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background-color: var(--icaps-verde);
+  color: #fff;
+  text-decoration: none;
+
+  /* Sombra con tinte verde para integración visual */
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.45);
+
+  /* Transición suave para hover y animaciones */
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+/* Tamaño del ícono SVG dentro del botón */
+.whatsapp-flotante svg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* Animación de rebote inicial para llamar la atención */
+.whatsapp-flotante {
+  animation: whatsapp-rebote 2.5s ease-in-out 1.5s 3;
+}
+
+@keyframes whatsapp-rebote {
+  0%, 100% { transform: translateY(0) scale(1); }
+  30%       { transform: translateY(-10px) scale(1.06); }
+  60%       { transform: translateY(-4px) scale(1.02); }
+}
+
+/* Efecto hover: sube un poco y agranda la sombra */
+.whatsapp-flotante:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 10px 36px rgba(37, 211, 102, 0.55);
+}
+
+/* Efecto al presionar */
+.whatsapp-flotante:active {
+  transform: scale(0.95);
+}
+
+/* ── Tooltip del botón de WhatsApp ── */
+.whatsapp-tooltip {
+  position: absolute;
+  right: 74px;           /* A la izquierda del botón circular */
+  white-space: nowrap;
+
+  /* Estilo de la etiqueta */
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+
+  /* Por defecto invisible */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity var(--transicion), transform var(--transicion);
+}
+
+/* Flecha del tooltip hacia la derecha */
+.whatsapp-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: #1a1a1a;
+  border-right: none;
+}
+
+/* Mostrar tooltip al hacer hover en el botón */
+.whatsapp-flotante:hover .whatsapp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Responsivo: botón más pequeño en móvil ── */
+@media (max-width: 480px) {
+  .whatsapp-flotante {
+    width: 54px;
+    height: 54px;
+    bottom: 20px;
+    right: 20px;
+  }
+  .whatsapp-flotante svg {
+    width: 27px;
+    height: 27px;
+  }
+  /* Ocultar tooltip en móvil (pantalla muy pequeña) */
+  .whatsapp-tooltip {
+    display: none;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   BLOQUES CTA (LLAMADAS A LA ACCIÓN) EN SECCIONES
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Contenedor del CTA dentro de una sección */
+.cta-seccion {
+  margin-top: 3rem;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, var(--icaps-primario) 0%, #2a5298 100%);
+  border-radius: var(--radio-tarjeta);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Variante centrada (para el CTA de programas) */
+.cta-seccion--centrado {
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Texto descriptivo del CTA */
+.cta-seccion__texto {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 0;
+  flex: 1;
+  min-width: 220px;
+}
+
+/* Grupo de botones del CTA */
+.cta-seccion__botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ── Estilos base para todos los botones CTA ── */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.75rem 1.6rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--transicion), box-shadow var(--transicion), background var(--transicion);
+  white-space: nowrap;
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+}
+.btn-cta:active {
+  transform: scale(0.97);
+}
+
+/* Botón primario: blanco con texto azul */
+.btn-cta--primario {
+  background: #fff;
+  color: var(--icaps-primario);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.btn-cta--primario:hover {
+  background: #f0f4ff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Botón secundario: transparente con borde blanco */
+.btn-cta--secundario {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.7);
+}
+.btn-cta--secundario:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff;
+}
+
+/* Botón de WhatsApp: verde con ícono */
+.btn-cta--whatsapp {
+  background: var(--icaps-verde);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+}
+.btn-cta--whatsapp:hover {
+  background: var(--icaps-verde-hover);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+}
+
+/* Responsivo para CTAs en móvil */
+@media (max-width: 640px) {
+  .cta-seccion {
+    padding: 2rem 1.25rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  .cta-seccion__botones {
+    justify-content: center;
+    width: 100%;
+  }
+  .btn-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   GRID DE 6 TARJETAS DE PROGRAMAS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Grid responsivo: 3 columnas en escritorio, 2 en tablet, 1 en móvil */
+.programas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .programas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .programas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Tarjeta individual de programa ── */
+.programa-card {
+  background: #fff;
+  border-radius: var(--radio-tarjeta);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--sombra-suave);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  /* Borde superior de color que cambiará por programa */
+  border-top: 4px solid var(--icaps-primario);
+
+  /* Transición para efecto hover */
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.programa-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* ── Ícono del programa ── */
+.programa-card__icono {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.programa-card__icono svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Color único por programa */
+.programa-card__icono--prepa    { background: #e8f4fd; color: #1a6eb5; }
+.programa-card__icono--admin    { background: #fff3e0; color: #e65100; }
+.programa-card__icono--derecho  { background: #fce4ec; color: #c62828; }
+.programa-card__icono--psico    { background: #f3e5f5; color: #7b1fa2; }
+.programa-card__icono--comercio { background: #e8f5e9; color: #2e7d32; }
+.programa-card__icono--conta    { background: #e3f2fd; color: #1565c0; }
+
+/* Borde superior con color del ícono para coherencia visual */
+.programa-card:has(.programa-card__icono--prepa)    { border-top-color: #1a6eb5; }
+.programa-card:has(.programa-card__icono--admin)    { border-top-color: #e65100; }
+.programa-card:has(.programa-card__icono--derecho)  { border-top-color: #c62828; }
+.programa-card:has(.programa-card__icono--psico)    { border-top-color: #7b1fa2; }
+.programa-card:has(.programa-card__icono--comercio) { border-top-color: #2e7d32; }
+.programa-card:has(.programa-card__icono--conta)    { border-top-color: #1565c0; }
+
+/* ── Etiqueta de nivel (Licenciatura / Nivel Medio Superior) ── */
+.programa-card__nivel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+}
+
+/* ── Título del programa ── */
+.programa-card__titulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--icaps-primario);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ── Descripción del programa ── */
+.programa-card__descripcion {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;             /* Empuja el botón hacia abajo para alinear tarjetas */
+}
+
+/* ── Etiquetas de horarios ── */
+.programa-card__horarios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.horario-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--icaps-fondo-suave);
+  color: var(--icaps-primario);
+  border: 1px solid rgba(26, 58, 110, 0.15);
+}
+
+/* ── Botón de la tarjeta ── */
+.programa-card__btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  background: var(--icaps-primario);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: background var(--transicion), transform var(--transicion);
+}
+
+.programa-card__btn:hover {
+  background: #2a5298;
+  transform: translateY(-1px);
+}
+
+.programa-card__btn:active {
+  transform: scale(0.97);
+}

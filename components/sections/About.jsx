@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './About.module.css';
+import CallToAction from '../CallToAction';
 
 export default function About() {
   return (
@@ -39,6 +40,14 @@ export default function About() {
             <span className={styles.imageText}>Campus ICAPS Sede Madero</span>
           </div>
         </div>
+      </div>
+
+      <div className="container">
+        <CallToAction 
+          text="¿Quieres formar parte de nuestra comunidad académica?"
+          primaryBtn={{ href: '#contacto', text: 'Solicitar información' }}
+          secondaryBtn={{ href: '#programas', text: 'Ver programas' }}
+        />
       </div>
     </section>
   );
