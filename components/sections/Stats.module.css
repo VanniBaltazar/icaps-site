@@ -1,0 +1,47 @@
+.statsSection {
+  background-color: var(--surface);
+  padding: 4rem 0;
+  margin-top: -6rem; /* Overlap with hero slightly */
+  position: relative;
+  z-index: 10;
+}
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  background-color: var(--surface);
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.statItem {
+  text-align: center;
+  padding: 1rem;
+}
+
+.statValue {
+  font-size: 3rem;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+@media (max-width: 992px) {
+  .statsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .statsContainer {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+}

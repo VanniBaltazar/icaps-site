@@ -1,0 +1,145 @@
+.infoSection {
+  background-color: var(--background);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.infoCard {
+  background-color: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.cardHeader {
+  background-color: var(--primary);
+  color: var(--surface);
+  padding: 1.5rem 2rem;
+}
+
+.cardHeader h3 {
+  color: var(--surface);
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.cardContent {
+  padding: 2rem;
+}
+
+.block {
+  margin-bottom: 1.5rem;
+}
+
+.block:last-child {
+  margin-bottom: 0;
+}
+
+.block h4 {
+  color: var(--secondary-hover);
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.cardContent ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.cardContent ul li {
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.cardContent ul li::before {
+  content: '•';
+  color: var(--secondary);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.costList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 1.125rem;
+}
+
+.costList li::before {
+  display: none; /* remove bullet */
+}
+
+.costList li:last-child {
+  border-bottom: none;
+}
+
+.costList strong {
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.featuredCost {
+  background-color: var(--background);
+  padding: 1rem !important;
+  border-radius: var(--radius-sm);
+  margin-top: 1rem;
+}
+
+.featuredCost strong {
+  color: var(--secondary-hover);
+  font-size: 1.5rem;
+}
+
+.reqList li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0 !important;
+}
+
+.reqList li::before {
+  display: none !important;
+}
+
+.reqList svg {
+  width: 20px;
+  height: 20px;
+  color: var(--secondary);
+  stroke-width: 3px;
+  flex-shrink: 0;
+}
+
+.highlightCard {
+  border: 2px solid var(--secondary);
+  transform: scale(1.02);
+}
+
+.highlightCard .cardHeader {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.highlightCard .cardHeader h3 {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .highlightCard {
+    transform: scale(1);
+  }
+}
