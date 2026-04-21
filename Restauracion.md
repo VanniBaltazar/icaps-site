@@ -59,19 +59,19 @@ Definidas en `src/app/globals.css`, estas variables controlan toda la estética 
 ## 4. Contenido de la Landing Page
 
 ### A. Metadatos (SEO)
-- **Título:** `Licenciaturas y Preparatoria en Veracruz | ICAPS Sede Madero`
-- **Descripción:** `Estudia tu licenciatura o bachillerato en Veracruz. ICAPS Sede Madero ofrece licenciaturas sabatinas y preparatoria en diversas modalidades. Inscríbete hoy.`
-- **Keywords:** Veracruz, Licenciaturas sabatinas, Preparatoria Veracruz, ICAPS, Educación superior.
+- **Título:** `Licenciaturas y Bachillerato en Veracruz | ICAPS Sede Madero`
+- **Descripción:** `Estudia tu licenciatura o bachillerato en Veracruz. ICAPS Sede Madero ofrece licenciaturas sabatinas y bachillerato en diversas modalidades. Inscríbete hoy.`
+- **Keywords:** Veracruz, Licenciaturas sabatinas, Bachillerato Veracruz, ICAPS, Educación superior.
 
 ### B. Secciones Clave
 1. **Hero:** 
    - Título: "Construye tu futuro profesional en ICAPS Sede Madero" (ICAPS resaltado en amarillo `#FFEA00`).
-   - CTAs: Botones para "Licenciaturas" (Sabatino/Dominical) y "Preparatoria" (Varias modalidades).
+   - CTAs: Botones para "Licenciaturas" (Sabatino/Dominical) y "Bachillerato" (Varias modalidades).
 2. **Programas:**
    - **Licenciaturas:** Psicopedagogía (Sáb), Derecho (Sáb), Comercio Exterior (Dom), Administración (Dom), Contaduría (Dom).
-   - **Preparatoria:** Escolarizado, Semi-escolarizado, Solo Viernes, Solo Sábados, Examen Único.
+   - **Bachillerato:** Escolarizado, Semi-escolarizado (Lun-Jue, Vie, Sáb).
 3. **Contacto:**
-   - **WhatsApp:** 229 397 8728
+   - **WhatsApp:** 229 531 1945
    - **Teléfono:** 229 931 4411
    - **Dirección:** Arista 966 Esq. Madero, Col. Centro, Veracruz, Ver.
 

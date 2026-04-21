@@ -4,9 +4,9 @@ import ProgramCard from './ProgramCard';
 
 const programsData = [
   {
-    title: 'Preparatoria',
+    title: 'Bachillerato',
     level: 'Nivel Medio Superior',
-    description: 'Concluye tu bachillerato con opciones flexibles que se adaptan a tu ritmo de vida. Modalidad escolarizada (Lunes–Viernes) y semi-escolarizada disponibles.',
+    description: 'Concluye tu bachillerato con opciones flexibles que se adaptan a tu ritmo de vida. Modalidades escolarizada y semi-escolarizada con horarios matutinos y vespertinos.',
     schedules: ['L–V Escolarizada', 'Semi-escolarizada'],
     iconColorClass: 'programa-card__icono--prepa',
     icon: (
@@ -14,7 +14,32 @@ const programsData = [
         <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
         <path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/>
       </svg>
-    )
+    ),
+    detailedInfo: {
+      modalidades: [
+        {
+          name: 'Escolarizado',
+          schedules: [
+            { day: 'Lunes a Viernes', time: '9:00am a 1:40pm', cost: '$1,000 Inscripción (trimestral) + $950 mensual' }
+          ]
+        },
+        {
+          name: 'Semi-escolarizado',
+          schedules: [
+            { day: 'Lunes a Jueves', time: '12:00pm a 2:30pm', cost: 'Sin Inscripción, $2,500 cada 3 meses' },
+            { day: 'Viernes', time: '9:00am a 2:40pm', cost: 'Sin Inscripción, $2,000 cada 3 meses' },
+            { day: 'Sábado', time: '2:00pm a 7:30pm', cost: 'Sin Inscripción, $2,000 cada 3 meses' }
+          ]
+        }
+      ],
+      requisitos: [
+        'Acta de Nacimiento',
+        'CURP',
+        'Certificado de Secundaria',
+        'Comprobante de Domicilio',
+        'Copia de INE del Padre o Tutor'
+      ]
+    }
   },
   {
     title: 'Lic. en Administración de Empresas',

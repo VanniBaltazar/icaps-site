@@ -4,7 +4,7 @@ import React from 'react';
 export default function WhatsAppButton({ isVisible = true }) {
   return (
     <a
-      href="https://wa.me/522293978728?text=Hola%2C%20me%20interesa%20obtener%20informaci%C3%B3n%20sobre%20los%20programas%20de%20ICAPS%20Sede%20Madero"
+      href="https://wa.me/522295311945?text=Hola%2C%20me%20interesa%20obtener%20informaci%C3%B3n%20sobre%20los%20programas%20de%20ICAPS%20Sede%20Madero"
       className="whatsapp-flotante"
       target="_blank"
       rel="noopener noreferrer"

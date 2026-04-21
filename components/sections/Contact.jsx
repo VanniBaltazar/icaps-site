@@ -34,7 +34,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4>WhatsApp</h4>
-                  <p><a href="https://wa.me/522293978728" target="_blank" rel="noopener noreferrer">229 397 8728</a></p>
+                  <p><a href="https://wa.me/522295311945" target="_blank" rel="noopener noreferrer">229 531 1945</a></p>
                 </div>
               </div>
 
@@ -75,7 +75,7 @@ export default function Contact() {
                 <label htmlFor="programa">Programa de Interés *</label>
                 <select id="programa" name="programa" required>
                   <option value="">Selecciona un programa...</option>
-                  <option value="preparatoria">Preparatoria</option>
+                  <option value="bachillerato">Bachillerato</option>
                   <option value="lic-administracion">Lic. en Administración de Empresas</option>
                   <option value="lic-derecho">Lic. en Derecho</option>
                   <option value="lic-psicopedagogia">Lic. en Psicopedagogía</option>

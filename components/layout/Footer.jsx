@@ -28,7 +28,7 @@ export default function Footer() {
           <h4>Contacto Rápido</h4>
           <ul>
             <li><a href="tel:2299314411">Tel: 229 931 4411</a></li>
-            <li><a href="https://wa.me/522293978728" target="_blank" rel="noopener noreferrer">WhatsApp: 229 397 8728</a></li>
+            <li><a href="https://wa.me/522295311945" target="_blank" rel="noopener noreferrer">WhatsApp: 229 531 1945</a></li>
             <li><a href="mailto:info@icaps-edu.com">info@icaps-edu.com</a></li>
           </ul>
         </div>

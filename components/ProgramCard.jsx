@@ -1,8 +1,10 @@
 'use client';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import ProgramDetailsModal from './ui/ProgramDetailsModal';
 
-export default function ProgramCard({ title, level, description, schedules, icon, iconColorClass, delayIndex }) {
+export default function ProgramCard({ title, level, description, schedules, icon, iconColorClass, delayIndex, detailedInfo }) {
   const cardRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (!('IntersectionObserver' in window)) {
@@ -39,19 +41,42 @@ export default function ProgramCard({ title, level, description, schedules, icon
   }, [delayIndex]);
 
   return (
-    <div ref={cardRef} className="programa-card">
-      <div className={`programa-card__icono ${iconColorClass}`}>
-        {icon}
+    <>
+      <div ref={cardRef} className="programa-card">
+        <div className={`programa-card__icono ${iconColorClass}`}>
+          {icon}
+        </div>
+        <span className="programa-card__nivel">{level}</span>
+        <h3 className="programa-card__titulo">{title}</h3>
+        <p className="programa-card__descripcion">{description}</p>
+        <div className="programa-card__horarios">
+          {schedules.map((schedule, idx) => (
+            <span key={idx} className="horario-tag">{schedule}</span>
+          ))}
+        </div>
+        
+        <div className="programa-card__actions">
+          {detailedInfo ? (
+            <button 
+              onClick={() => setIsModalOpen(true)} 
+              className="programa-card__btn"
+            >
+              Ver detalles y costos
+            </button>
+          ) : (
+            <a href="#contacto" className="programa-card__btn">Pedir información</a>
+          )}
+        </div>
       </div>
-      <span className="programa-card__nivel">{level}</span>
-      <h3 className="programa-card__titulo">{title}</h3>
-      <p className="programa-card__descripcion">{description}</p>
-      <div className="programa-card__horarios">
-        {schedules.map((schedule, idx) => (
-          <span key={idx} className="horario-tag">{schedule}</span>
-        ))}
-      </div>
-      <a href="#contacto" className="programa-card__btn">Pedir información</a>
-    </div>
+
+      {detailedInfo && (
+        <ProgramDetailsModal 
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title={title}
+          detailedInfo={detailedInfo}
+        />
+      )}
+    </>
   );
 }

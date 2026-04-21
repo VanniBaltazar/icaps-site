@@ -35,24 +35,23 @@ export default function InfoSede() {
             </div>
           </div>
 
-          {/* Preparatoria */}
           <div className={styles.infoCard}>
             <div className={styles.cardHeader}>
-              <h3>Preparatoria (Horarios)</h3>
+              <h3>Bachillerato (Horarios)</h3>
             </div>
             <div className={styles.cardContent}>
               <div className={styles.block}>
-                <h4>Escolarizada:</h4>
+                <h4>Escolarizado:</h4>
                 <ul>
-                  <li>Lunes a Viernes</li>
+                  <li>Lun - Vie (9:00am a 1:40pm)</li>
                 </ul>
               </div>
               <div className={styles.block}>
-                <h4>Semi-escolarizada:</h4>
+                <h4>Semi-escolarizado:</h4>
                 <ul>
-                  <li>Lunes a Jueves</li>
-                  <li>Viernes</li>
-                  <li>Sábados</li>
+                  <li>Lun - Jue (12:00pm a 2:30pm)</li>
+                  <li>Viernes (9:00am a 2:40pm)</li>
+                  <li>Sábados (2:00pm a 7:30pm)</li>
                 </ul>
               </div>
             </div>
@@ -90,9 +89,9 @@ export default function InfoSede() {
               <ul className={styles.reqList}>
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> Acta de nacimiento</li>
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> CURP</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> Certificado de bachillerato</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> Certificado de Secundaria</li>
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> Comprobante de domicilio</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> Copia de INE</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> Copia de INE (Padre o Tutor)</li>
               </ul>
             </div>
           </div>

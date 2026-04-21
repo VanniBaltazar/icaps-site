@@ -18,7 +18,7 @@ export default function Programas() {
           text="¿No encuentras lo que buscas? Nuestros asesores te orientan sin compromiso."
           variant="centered"
           primaryBtn={{ href: '#contacto', text: 'Hablar con un asesor' }}
-          onWhatsapp={{ href: 'https://wa.me/522293978728?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20programas%20de%20ICAPS', text: 'WhatsApp directo' }}
+          onWhatsapp={{ href: 'https://wa.me/522295311945?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20programas%20de%20ICAPS', text: 'WhatsApp directo' }}
         />
       </div>
     </section>
