@@ -15,7 +15,7 @@ El proyecto ha evolucionado de una landing page estática a una aplicación web 
 - **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
 - **Estilos:** [Tailwind CSS 4](https://tailwindcss.com/)
 - **Iconos:** [Lucide React](https://lucide.dev/)
-- **Despliegue:** [Firebase Hosting](https://firebase.google.com/docs/hosting)
+- **Despliegue:** [Vercel](https://vercel.com/)
 
 ---
 
@@ -30,8 +30,7 @@ icaps-site/
 ├── public/             # Recursos estáticos (imágenes, fuentes, etc.)
 ├── assets/             # Recursos de diseño y documentación adicional
 ├── next.config.ts      # Configuración de Next.js
-├── tailwind.config.ts  # Configuración de Tailwind CSS
-└── firebase.json       # Configuración de despliegue en Firebase
+└── tailwind.config.ts  # Configuración de Tailwind CSS
 ```
 
 ---
@@ -78,16 +77,13 @@ La plataforma incluye actualmente:
 
 ---
 
-## 🔥 Despliegue en Firebase
+## 🔥 Despliegue en Vercel
 
-El sitio está configurado para desplegarse en Firebase Hosting. El proceso requiere generar primero la build de producción:
+El sitio está configurado para desplegarse de manera automática y optimizada en Vercel.
 
 ```bash
-# 1. Construir el proyecto
-npm run build
-
-# 2. Desplegar a Firebase
-firebase deploy --only hosting
+# Desplegar a Vercel
+npx vercel --prod
 ```
 
 ---
@@ -99,13 +95,3 @@ Mantenemos un estándar alto de accesibilidad:
 - Soporte completo para navegación por teclado.
 - Etiquetas ARIA donde es necesario.
 - Optimización de contraste y legibilidad.
-
----
-
-<div align="center">
-  <p><i>Instituto ICAPS © 2026 — Construyendo el futuro profesional.</i></p>
-  <br/>
-  <p>
-    ✨ <b>Diseño y Desarrollo a cargo de <a href="https://github.com/Giomath" target="_blank" style="color: #C9A84C; text-decoration: none;">Giomath</a></b> ✨
-  </p>
-</div>
