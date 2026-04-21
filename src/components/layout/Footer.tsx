@@ -133,7 +133,10 @@ export function Footer() {
       {/* Barra de copyright */}
       <div className="bg-black/25 py-6">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
-          <p>© {anioActual} ICAPS Sede Madero. Todos los derechos reservados.</p>
+          <div className="flex flex-col gap-1 items-center sm:items-start">
+            <p>© {anioActual} ICAPS Sede Madero. Todos los derechos reservados.</p>
+            <p className="text-[8px] opacity-40 uppercase tracking-[0.2em]">Build: v1.1.0-release</p>
+          </div>
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <p>Licenciaturas con RVOE ante la SEP · Veracruz, México</p>
             <p className="flex items-center gap-1 opacity-70">

@@ -136,7 +136,7 @@ function ProgramCard({ card }: {
 }) {
   return (
     <article
-      className={`reveal ${card.delay} relative flex flex-col gap-4 rounded-2xl p-8 border transition-all duration-300 overflow-hidden
+      className={`reveal ${card.delay} relative flex flex-col gap-3 sm:gap-4 rounded-2xl p-6 sm:p-8 border transition-all duration-300 overflow-hidden
         hover:-translate-y-1.5 hover:shadow-xl hover:border-[var(--color-accent)]
         ${card.featured
           ? 'border-[rgba(201,168,76,.3)] border-2'
@@ -147,7 +147,7 @@ function ProgramCard({ card }: {
       } : undefined}
       aria-labelledby={card.id}
     >
-      {/* Línea superior — siempre visible en featured, en hover para los demás */}
+      {/* Línea superior */}
       <div
         className={`absolute top-0 left-0 right-0 h-1 ${card.featured ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-300`}
         style={{ background: 'linear-gradient(90deg, var(--color-primary), var(--color-accent))' }}
@@ -156,30 +156,30 @@ function ProgramCard({ card }: {
 
       {/* Badge de día/modalidad */}
       <div
-        className="absolute top-0 right-6 text-xs font-bold px-3 py-1 rounded-b-md uppercase tracking-wide"
+        className="absolute top-0 right-4 sm:right-6 text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-b-md uppercase tracking-wide"
         style={{ ...Object.fromEntries(BADGE_STYLES[card.badgeVariant].split(';').filter(Boolean).map(s => { const [k, v] = s.split(':'); return [k.trim(), v.trim()] })) }}
         aria-label={`Modalidad: ${card.badge}`}
       >
         {card.badge}
       </div>
 
-      <span className="text-4xl leading-none mt-2" aria-hidden="true">{card.icon}</span>
+      <span className="text-3xl sm:text-4xl leading-none mt-2" aria-hidden="true">{card.icon}</span>
 
-      <h3 className="text-xl font-bold" id={card.id} style={{ color: 'var(--color-primary)' }}>
+      <h3 className="text-lg sm:text-xl font-bold" id={card.id} style={{ color: 'var(--color-primary)' }}>
         {card.title}
       </h3>
 
-      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--color-accent)' }}>
+      <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--color-accent)' }}>
         {card.level}
       </p>
 
-      <p className="text-base flex-1" style={{ color: 'var(--color-text-muted)', lineHeight: 1.7 }}>
+      <p className="text-sm sm:text-base flex-1" style={{ color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
         {card.desc}
       </p>
 
       <a
         href="#contacto"
-        className="inline-flex items-center gap-2 text-sm font-bold mt-auto transition-all duration-150 no-underline hover:no-underline hover:gap-3"
+        className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold mt-auto transition-all duration-150 no-underline hover:no-underline hover:gap-3"
         style={{ color: 'var(--color-accent)' }}
       >
         {card.ctaLabel ?? 'Solicitar información →'}
