@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -8,13 +9,21 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerGrid}`}>
         <div className={styles.brandInfo}>
-          <img src="/logo.png" alt="ICAPS Logo" className={styles.logo} />
+          <Image 
+            src="/logo.png" 
+            alt="ICAPS Sede Madero Logo" 
+            width={150} 
+            height={75} 
+            loading="lazy"
+            style={{ objectFit: 'contain' }}
+            className={styles.logo} 
+          />
           <p className={styles.description}>
             Institución comprometida con la excelencia educativa, formando profesionales líderes en Veracruz.
           </p>
         </div>
 
-        <div className={styles.linksBlock}>
+        <nav className={styles.linksBlock} aria-label="Enlaces de navegación pie de página">
           <h4>Navegación</h4>
           <ul>
             <li><a href="#about">Nosotros</a></li>
@@ -22,7 +31,7 @@ export default function Footer() {
             <li><a href="#galeria">Campus</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
-        </div>
+        </nav>
 
         <div className={styles.linksBlock}>
           <h4>Contacto Rápido</h4>

@@ -10,7 +10,7 @@ const programsData = [
     schedules: ['L–V Escolarizada', 'Semi-escolarizada'],
     iconColorClass: 'programa-card__icono--prepa',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
         <path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/>
       </svg>
@@ -48,7 +48,7 @@ const programsData = [
     schedules: ['Domingos'],
     iconColorClass: 'programa-card__icono--admin',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <rect x="2" y="7" width="20" height="14" rx="2"/>
         <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
         <line x1="12" y1="12" x2="12" y2="16"/>
@@ -63,7 +63,7 @@ const programsData = [
     schedules: ['Sábados'],
     iconColorClass: 'programa-card__icono--derecho',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7l-9-5z"/>
       </svg>
     )
@@ -75,7 +75,7 @@ const programsData = [
     schedules: ['Sábados'],
     iconColorClass: 'programa-card__icono--psico',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <circle cx="12" cy="8" r="4"/>
         <path d="M12 12c-4.5 0-8 2-8 4.5V18h16v-1.5c0-2.5-3.5-4.5-8-4.5z"/>
         <path d="M19 3s1 1 1 3-1 3-1 3"/>
@@ -90,7 +90,7 @@ const programsData = [
     schedules: ['Domingos'],
     iconColorClass: 'programa-card__icono--comercio',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <circle cx="12" cy="12" r="10"/>
         <line x1="2" y1="12" x2="22" y2="12"/>
         <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/>
@@ -104,7 +104,7 @@ const programsData = [
     schedules: ['Domingos'],
     iconColorClass: 'programa-card__icono--conta',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <rect x="4" y="4" width="16" height="16" rx="2"/>
         <path d="M4 9h16"/>
         <path d="M9 9v11"/>

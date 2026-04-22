@@ -12,7 +12,7 @@ export default function InfoSede() {
 
         <div className={styles.grid}>
           {/* Licenciaturas */}
-          <div className={styles.infoCard}>
+          <article className={styles.infoCard}>
             <div className={styles.cardHeader}>
               <h3>Licenciaturas Disponibles</h3>
             </div>
@@ -33,9 +33,9 @@ export default function InfoSede() {
                 </ul>
               </div>
             </div>
-          </div>
+          </article>
 
-          <div className={styles.infoCard}>
+          <article className={styles.infoCard}>
             <div className={styles.cardHeader}>
               <h3>Bachillerato (Horarios)</h3>
             </div>
@@ -55,10 +55,10 @@ export default function InfoSede() {
                 </ul>
               </div>
             </div>
-          </div>
+          </article>
 
           {/* Costes */}
-          <div className={`${styles.infoCard} ${styles.highlightCard}`}>
+          <article className={`${styles.infoCard} ${styles.highlightCard}`}>
             <div className={styles.cardHeader}>
               <h3>Costos de Inversión</h3>
             </div>
@@ -78,23 +78,23 @@ export default function InfoSede() {
                 </li>
               </ul>
             </div>
-          </div>
+          </article>
 
           {/* Requisitos */}
-          <div className={styles.infoCard}>
+          <article className={styles.infoCard}>
             <div className={styles.cardHeader}>
               <h3>Requisitos</h3>
             </div>
             <div className={styles.cardContent}>
               <ul className={styles.reqList}>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> Acta de nacimiento</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> CURP</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> Certificado de Secundaria</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> Comprobante de domicilio</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg> Copia de INE (Padre o Tutor)</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> Acta de nacimiento</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> CURP</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> Certificado de Secundaria</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> Comprobante de domicilio</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> Copia de INE (Padre o Tutor)</li>
               </ul>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>

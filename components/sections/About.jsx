@@ -9,7 +9,7 @@ export default function About() {
         <div className={styles.textContent}>
           <h2 className="section-title" style={{ textAlign: 'left' }}>Nosotros</h2>
           <p className={styles.description}>
-            En ICAPS Sede Madero estamos comprometidos con la formación integral de nuestros estudiantes, brindando herramientas y conocimientos que les permitan destacar en el ámbito profesional y contribuir positivamente a la sociedad.
+            En ICAPS estamos comprometidos con la formación integral de nuestros estudiantes, brindando herramientas y conocimientos que les permitan destacar en el ámbito profesional y contribuir positivamente a la sociedad.
           </p>
 
           <div className={styles.cards}>

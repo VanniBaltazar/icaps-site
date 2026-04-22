@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import styles from './Header.module.css';
 
 export default function Header() {
@@ -21,10 +22,17 @@ export default function Header() {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.headerContainer}`}>
         <a href="#" className={styles.logo}>
-          <img src="/logo.png" alt="ICAPS Logo" />
+          <Image 
+            src="/logo.png" 
+            alt="ICAPS Sede Madero Logo" 
+            width={120} 
+            height={60} 
+            priority
+            style={{ objectFit: 'contain' }}
+          />
         </a>
         
-        <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ''}`}>
+        <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ''}`} aria-label="Main Navigation">
           <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>Nosotros</a>
           <a href="#programas" onClick={() => setIsMobileMenuOpen(false)}>Programas</a>
           <a href="#galeria" onClick={() => setIsMobileMenuOpen(false)}>Campus</a>
@@ -37,11 +45,12 @@ export default function Header() {
         <button 
           className={styles.mobileToggle} 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
+          aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={isMobileMenuOpen}
         >
-          <span className={`${styles.bar} ${isMobileMenuOpen ? styles.bar1Open : ''}`}></span>
-          <span className={`${styles.bar} ${isMobileMenuOpen ? styles.bar2Open : ''}`}></span>
-          <span className={`${styles.bar} ${isMobileMenuOpen ? styles.bar3Open : ''}`}></span>
+          <span className={`${styles.bar} ${isMobileMenuOpen ? styles.bar1Open : ''}`} aria-hidden="true"></span>
+          <span className={`${styles.bar} ${isMobileMenuOpen ? styles.bar2Open : ''}`} aria-hidden="true"></span>
+          <span className={`${styles.bar} ${isMobileMenuOpen ? styles.bar3Open : ''}`} aria-hidden="true"></span>
         </button>
       </div>
     </header>

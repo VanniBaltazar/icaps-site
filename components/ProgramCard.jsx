@@ -42,7 +42,7 @@ export default function ProgramCard({ title, level, description, schedules, icon
 
   return (
     <>
-      <div ref={cardRef} className="programa-card">
+      <article ref={cardRef} className="programa-card">
         <div className={`programa-card__icono ${iconColorClass}`}>
           {icon}
         </div>
@@ -67,7 +67,7 @@ export default function ProgramCard({ title, level, description, schedules, icon
             <a href="#contacto" className="programa-card__btn">Pedir información</a>
           )}
         </div>
-      </div>
+      </article>
 
       {detailedInfo && (
         <ProgramDetailsModal 
