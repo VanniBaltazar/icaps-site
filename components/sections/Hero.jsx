@@ -7,7 +7,11 @@ export default function Hero() {
       <div className={styles.overlay}></div>
       <div className={`container ${styles.heroContent} animate-fade-up`}>
         <h1 className={styles.title}>
-          Construye tu futuro profesional en <span className="text-gradient">ICAPS Sede Madero</span>
+          Construye tu futuro profesional en
+          <div className={styles.icapsContainer}>
+            <span className={styles.icapsEmphasis}>ICAPS</span>
+          </div>
+          Sede Madero
         </h1>
         <p className={styles.subtitle}>
           Educación de excelencia con programas diseñados para impulsar tu carrera. Únete a nuestra comunidad académica y alcanza tus metas.

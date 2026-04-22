@@ -4,18 +4,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary);
-  /* Use a nice dark blue gradient since we don't have a hero image yet, or use abstract shapes */
-  background: linear-gradient(135deg, var(--primary) 0%, #1e3a8a 100%);
+  background-color: #020617; /* Even darker for better neon contrast */
   overflow: hidden;
   padding-top: 5rem; /* Space for header */
 }
 
-/* We could add an abstract background image or texture here */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/logoneon.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.35; /* Adjusted transparency for a "watermark" effect */
+  z-index: 0;
+  animation: subtleZoom 30s ease-in-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.15); }
+}
+
 .overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(15, 23, 42, 0.8) 100%);
+  background: radial-gradient(circle at center, rgba(15, 23, 42, 0.2) 0%, rgba(2, 6, 23, 0.9) 100%);
   z-index: 1;
 }
 
@@ -23,20 +38,55 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .title {
   font-size: 3.5rem;
   color: var(--surface);
   margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.icapsContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.icapsEmphasis {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 4.5rem;
+  letter-spacing: 0.2rem;
+  color: #fff;
+  text-shadow: 
+    0 0 10px rgba(96, 165, 250, 0.8),
+    0 0 20px rgba(96, 165, 250, 0.5),
+    0 0 40px rgba(96, 165, 250, 0.2);
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .subtitle {
   font-size: 1.25rem;
-  color: var(--text-light);
+  color: #fff; /* Solid white for better readability */
   margin-bottom: 2.5rem;
-  opacity: 0.9;
+  opacity: 1; /* Full opacity */
+  max-width: 700px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .actions {
@@ -47,7 +97,8 @@
 
 .wave {
   position: absolute;
-  bottom: -1px; /* Prevent 1px gap */
+  bottom: -1px;
+  /* Prevent 1px gap */
   left: 0;
   width: 100%;
   z-index: 2;
@@ -61,9 +112,13 @@
 
 @media (max-width: 768px) {
   .title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
-  
+
+  .icapsEmphasis {
+    font-size: 3rem;
+  }
+
   .actions {
     flex-direction: column;
   }

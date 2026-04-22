@@ -77,6 +77,28 @@
   box-shadow: var(--shadow-lg);
   overflow: hidden;
   position: relative;
+  flex-direction: column;
+  padding: 2rem;
+  text-align: center;
+}
+
+.aboutLogo {
+  width: 200px;
+  height: auto;
+  opacity: 0.15;
+  filter: brightness(0) invert(1); /* Makes the logo white for the dark gradient */
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+
+.imagePlaceholder:hover .aboutLogo {
+  opacity: 0.25;
+  transform: scale(1.05);
+}
+
+.imageText {
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .imagePlaceholder::before {
