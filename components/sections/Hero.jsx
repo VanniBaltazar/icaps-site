@@ -3,7 +3,7 @@ import styles from './Hero.module.css';
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
+    <section id="hero" className={styles.hero}>
       <div className={styles.overlay}></div>
       <div className={`container ${styles.heroContent} animate-fade-up`}>
         <h1 className={styles.title}>
@@ -21,11 +21,11 @@ export default function Hero() {
             Solicitar información
           </a>
           <a href="#programas" className="btn btn-outline">
-            Ver programas
+            Preparatoria/Universidad
           </a>
         </div>
       </div>
-      
+
       {/* Decorative Wave */}
       <div className={styles.wave}>
         <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">

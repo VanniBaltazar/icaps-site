@@ -22,14 +22,16 @@ export default function Header() {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.headerContainer}`}>
         <a href="#" className={styles.logo}>
-          <Image 
-            src="/logo.png" 
-            alt="ICAPS Sede Madero Logo" 
-            width={120} 
-            height={60} 
-            priority
-            style={{ objectFit: 'contain' }}
-          />
+          <div className={styles.logoWrapper}>
+            <Image 
+              src="/logo.png" 
+              alt="ICAPS Sede Madero Logo" 
+              width={100} 
+              height={50} 
+              priority
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         </a>
         
         <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ''}`} aria-label="Main Navigation">

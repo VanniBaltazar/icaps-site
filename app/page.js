@@ -13,6 +13,7 @@ import Gallery from '../components/sections/Gallery';
 import Contact from '../components/sections/Contact';
 import Map from '../components/sections/Map';
 import WhatsAppButton from '../components/WhatsAppButton';
+import ScrollToTop from '../components/ScrollToTop';
 
 export default function Home() {
   const [showWaButton, setShowWaButton] = useState(true);
@@ -58,6 +59,7 @@ export default function Home() {
         <Map />
       </main>
       <WhatsAppButton isVisible={showWaButton} />
+      <ScrollToTop />
       <Footer />
     </>
   );

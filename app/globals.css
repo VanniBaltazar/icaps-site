@@ -192,7 +192,7 @@ img {
 /* Posición fija en la esquina inferior derecha */
 .whatsapp-flotante {
   position: fixed;
-  bottom: 28px;
+  bottom: 104px;
   right: 28px;
   z-index: 9999;                 /* Siempre encima de todo el contenido */
 
@@ -287,7 +287,7 @@ img {
   .whatsapp-flotante {
     width: 54px;
     height: 54px;
-    bottom: 20px;
+    bottom: 84px;
     right: 20px;
   }
   .whatsapp-flotante svg {
@@ -302,8 +302,61 @@ img {
 
 
 /* ═══════════════════════════════════════════════════════════════════
-   BLOQUES CTA (LLAMADAS A LA ACCIÓN) EN SECCIONES
+   BOTÓN VOLVER ARRIBA (DISCRETO)
    ═══════════════════════════════════════════════════════════════════ */
+.scroll-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 34px; /* Un poco más centrado con el de WhatsApp que es más ancho */
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--surface);
+  color: var(--icaps-primario);
+  border: 2px solid var(--icaps-fondo-suave);
+  box-shadow: var(--sombra-suave);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(.4, 0, .2, 1);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background-color: var(--icaps-primario);
+  color: #fff;
+  border-color: var(--icaps-primario);
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-hover);
+}
+
+.scroll-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top {
+    width: 42px;
+    height: 42px;
+    bottom: 20px;
+    right: 26px;
+  }
+  .scroll-to-top svg {
+    width: 18px;
+    height: 18px;
+  }
+}
 
 /* Contenedor del CTA dentro de una sección */
 .cta-seccion {

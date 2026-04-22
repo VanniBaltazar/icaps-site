@@ -34,11 +34,19 @@ export default function About() {
         </div>
 
         <div className={styles.imageContent}>
-          {/* Using a placeholder gradient/abstract since we don't have campus photos yet.
-              When real photos are added, replace this div with an img tag. */}
-          <div className={styles.imagePlaceholder}>
-            <img src="/logo.png" alt="ICAPS Logo" className={styles.aboutLogo} />
-            <span className={styles.imageText}>Campus ICAPS Sede Madero</span>
+          <div className={styles.imageWrapper}>
+            <img 
+              src="/images/campus-madero.png" 
+              alt="Campus ICAPS Madero" 
+              className={styles.campusImage}
+              onError={(e) => {
+                e.target.src = '/logo.png';
+                e.target.classList.add(styles.fallbackLogo);
+              }}
+            />
+            <div className={styles.imageOverlay}>
+              <span className={styles.imageBadge}>Campus Sede Madero</span>
+            </div>
           </div>
         </div>
       </div>

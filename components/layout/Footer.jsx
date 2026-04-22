@@ -9,15 +9,17 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerGrid}`}>
         <div className={styles.brandInfo}>
-          <Image 
-            src="/logo.png" 
-            alt="ICAPS Sede Madero Logo" 
-            width={150} 
-            height={75} 
-            loading="lazy"
-            style={{ objectFit: 'contain' }}
-            className={styles.logo} 
-          />
+          <div className={styles.logoWrapper}>
+            <Image 
+              src="/logo.png" 
+              alt="ICAPS Sede Madero Logo" 
+              width={120} 
+              height={60} 
+              loading="lazy"
+              style={{ objectFit: 'contain' }}
+              className={styles.logo} 
+            />
+          </div>
           <p className={styles.description}>
             Institución comprometida con la excelencia educativa, formando profesionales líderes en Veracruz.
           </p>
