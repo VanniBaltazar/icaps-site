@@ -29,7 +29,7 @@ export default function Stats() {
   ];
 
   return (
-    <section className={`section ${styles.statsSection}`}>
+    <section aria-label="Estadísticas y logros de nuestra escuela en Veracruz" className={`section ${styles.statsSection}`}>
       <div className={`container ${styles.statsContainer}`}>
         {stats.map((stat, index) => (
           <AnimatedStat key={index} stat={stat} />

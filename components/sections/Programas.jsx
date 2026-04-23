@@ -5,7 +5,7 @@ import CallToAction from '../CallToAction';
 
 export default function Programas() {
   return (
-    <section id="programas" className={`section ${styles.programasSection}`}>
+    <section id="programas" aria-label="Programas educativos, preparatoria y universidad en Veracruz" className={`section ${styles.programasSection}`}>
       <div className="container">
         <h2 className="section-title">Nuestros Programas</h2>
         <p className="section-subtitle">

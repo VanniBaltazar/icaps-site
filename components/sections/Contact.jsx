@@ -8,7 +8,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className={`section ${styles.contactSection}`}>
+    <section id="contacto" aria-label="Contacto e inscripciones a escuela y universidad en Veracruz" className={`section ${styles.contactSection}`}>
       <div className="container">
         <div className={styles.contactWrapper}>
           <div className={styles.contactInfo}>

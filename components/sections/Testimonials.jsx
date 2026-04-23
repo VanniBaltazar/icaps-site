@@ -24,7 +24,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className={`section ${styles.testimonialsSection}`}>
+    <section aria-label="Testimonios de alumnos de nuestra escuela en Veracruz" className={`section ${styles.testimonialsSection}`}>
       <div className="container">
         <h2 className="section-title">Testimonios de Egresados</h2>
         <p className="section-subtitle">

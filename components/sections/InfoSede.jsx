@@ -3,7 +3,7 @@ import styles from './InfoSede.module.css';
 
 export default function InfoSede() {
   return (
-    <section className={`section ${styles.infoSection}`}>
+    <section aria-label="Ubicación y costos de nuestra escuela en Veracruz" className={`section ${styles.infoSection}`}>
       <div className="container">
         <h2 className="section-title">Información Sede Madero</h2>
         <p className="section-subtitle">

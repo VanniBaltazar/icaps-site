@@ -6,7 +6,7 @@ export default function Gallery() {
   const images = [1, 2, 3, 4, 5, 6];
 
   return (
-    <section id="galeria" className={`section ${styles.gallerySection}`}>
+    <section id="galeria" aria-label="Instalaciones de nuestra preparatoria y universidad en Veracruz" className={`section ${styles.gallerySection}`}>
       <div className="container">
         <h2 className="section-title">Conoce Nuestro Campus</h2>
         <p className="section-subtitle">

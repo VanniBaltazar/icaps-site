@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Map() {
   return (
-    <section className="section" style={{ padding: '0' }}>
+    <section aria-label="Mapa de ubicación de ICAPS Veracruz" className="section" style={{ padding: '0' }}>
       <div style={{ width: '100%', height: '400px', display: 'flex', flexDirection: 'column' }}>
         <div style={{ backgroundColor: 'var(--primary)', color: 'var(--surface)', padding: '1.5rem', textAlign: 'center' }}>
           <h3 style={{ margin: 0, fontFamily: 'Outfit, sans-serif' }}>Visítanos en Sede Madero</h3>

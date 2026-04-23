@@ -4,7 +4,7 @@ import CallToAction from '../CallToAction';
 
 export default function About() {
   return (
-    <section id="about" className={`section ${styles.aboutSection}`}>
+    <section id="about" aria-label="Acerca de nuestra institución educativa en Veracruz" className={`section ${styles.aboutSection}`}>
       <div className={`container ${styles.aboutContainer}`}>
         <div className={styles.textContent}>
           <h2 className="section-title" style={{ textAlign: 'left' }}>Nosotros</h2>

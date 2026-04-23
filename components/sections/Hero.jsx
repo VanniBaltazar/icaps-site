@@ -3,7 +3,7 @@ import styles from './Hero.module.css';
 
 export default function Hero() {
   return (
-    <section id="hero" className={styles.hero}>
+    <section id="hero" aria-label="ICAPS - La mejor opción de escuela y universidad en Veracruz" className={styles.hero}>
       <div className={styles.overlay}></div>
       <div className={`container ${styles.heroContent} animate-fade-up`}>
         <h1 className={styles.title}>
