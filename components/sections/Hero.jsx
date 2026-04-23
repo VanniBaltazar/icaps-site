@@ -14,7 +14,7 @@ export default function Hero() {
           Sede Madero
         </h1>
         <p className={styles.subtitle}>
-          Educación de excelencia con excelente ubicación en el centro de Veracruz. Programas diseñados para impulsar tu carrera y alcanzar tus metas académicas.
+          Educación de excelencia con ubicación en el centro de Veracruz. Programas diseñados para impulsar tu carrera y alcanzar tus metas académicas.
         </p>
         <div className={styles.actions}>
           <a href="#contacto" className="btn btn-primary">
