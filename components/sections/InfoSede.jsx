@@ -7,7 +7,7 @@ export default function InfoSede() {
       <div className="container">
         <h2 className="section-title">Información Sede Madero</h2>
         <p className="section-subtitle">
-          Conoce nuestra oferta educativa específica, horarios, costos y requisitos de inscripción para nuestra sede en Veracruz.
+          Conoce nuestra excelente ubicación en el centro de Veracruz, nuestra oferta educativa específica, horarios, costos y requisitos de inscripción.
         </p>
 
         <div className={styles.grid}>

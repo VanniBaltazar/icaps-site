@@ -22,10 +22,10 @@ const AnimatedStat = ({ stat }) => {
 
 export default function Stats() {
   const stats = [
-    { label: 'Egresados Exitosos', value: '+5000' },
-    { label: 'Años de Experiencia', value: '25' },
+    { label: 'Egresados Exitosos', value: '+2000' },
+    { label: 'Años de Experiencia', value: '15' },
     { label: 'Programas Educativos', value: '5' },
-    { label: 'Profesores Calificados', value: '50+' },
+    { label: 'Profesores Calificados', value: '30+' },
   ];
 
   return (
