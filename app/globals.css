@@ -536,6 +536,7 @@ img {
 .programa-card__icono--psico    { background: #f3e5f5; color: #7b1fa2; }
 .programa-card__icono--comercio { background: #e8f5e9; color: #2e7d32; }
 .programa-card__icono--conta    { background: #e3f2fd; color: #1565c0; }
+.programa-card__icono--maestria { background: #ede9fe; color: #5b21b6; }
 
 /* Borde superior con color del ícono para coherencia visual */
 .programa-card:has(.programa-card__icono--prepa)    { border-top-color: #1a6eb5; }
@@ -544,6 +545,7 @@ img {
 .programa-card:has(.programa-card__icono--psico)    { border-top-color: #7b1fa2; }
 .programa-card:has(.programa-card__icono--comercio) { border-top-color: #2e7d32; }
 .programa-card:has(.programa-card__icono--conta)    { border-top-color: #1565c0; }
+.programa-card:has(.programa-card__icono--maestria) { border-top-color: #5b21b6; }
 
 /* ── Etiqueta de nivel (Licenciatura / Nivel Medio Superior) ── */
 .programa-card__nivel {

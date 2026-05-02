@@ -1,9 +1,27 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useRef } from 'react';
 import styles from './Hero.module.css';
 
 export default function Hero() {
+  const bgRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (bgRef.current) {
+        const scrolled = window.scrollY;
+        // Use translate3d for GPU acceleration and move in the opposite direction
+        bgRef.current.style.transform = `translate3d(0, ${scrolled * 0.15}px, 0) scale(1.15)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section id="hero" aria-label="ICAPS - La mejor opción de escuela y universidad en Veracruz" className={styles.hero}>
+      <div ref={bgRef} className={styles.parallaxBg}></div>
       <div className={styles.overlay}></div>
       <div className={`container ${styles.heroContent} animate-fade-up`}>
         <h1 className={styles.title}>
@@ -22,6 +40,9 @@ export default function Hero() {
           </a>
           <a href="#programas" className="btn btn-outline">
             Preparatoria/Universidad
+          </a>
+          <a href="#programas" className="btn btn-outline">
+            Maestría
           </a>
         </div>
       </div>

@@ -81,6 +81,7 @@ export default function Contact() {
                   <option value="lic-psicopedagogia">Lic. en Psicopedagogía</option>
                   <option value="lic-comercio">Lic. en Comercio Exterior</option>
                   <option value="lic-contaduria">Lic. en Contaduría Pública</option>
+                  <option value="maestria-educacion">Maestría en Educación</option>
                 </select>
               </div>
 

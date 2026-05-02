@@ -110,6 +110,46 @@ const programsData = [
         <path d="M9 9v11"/>
       </svg>
     )
+  },
+  {
+    title: 'Maestría en Educación',
+    level: 'Posgrado',
+    description: 'Desarrolle una visión estratégica de la enseñanza y conviértase en un referente del sector educativo con metodologías de vanguardia y liderazgo institucional.',
+    schedules: ['Viernes 16:00–20:00'],
+    iconColorClass: 'programa-card__icono--maestria',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+        <path d="M12 3L1 9l11 6 9-4.91V17M1 9v7"/>
+        <path d="M5 12v5c3.33 2 8.67 2 12 0v-5"/>
+      </svg>
+    ),
+    detailedInfo: {
+      tipo: 'posgrado',
+      perfil: [
+        { label: 'Innovación Pedagógica', desc: 'Implementación de metodologías de vanguardia en el aula.' },
+        { label: 'Liderazgo Institucional', desc: 'Gestión y dirección efectiva de proyectos y equipos educativos.' },
+      ],
+      programaDetalles: [
+        { icon: '🎓', label: 'Duración', value: '5 Cuatrimestres' },
+        { icon: '📅', label: 'Inicio de Ciclo', value: 'Noviembre 2025' },
+        { icon: '🕓', label: 'Modalidad y Horario', value: 'Viernes 16:00 – 20:00 hrs' },
+      ],
+      inversion: {
+        mensualidad: '$1,650.00',
+        inscripcion: '$2,000.00',
+        descuento: '50% de descuento en inscripción pagando con un mes de anticipación',
+      },
+      requisitos: [
+        'Acta de nacimiento actualizada (original y 3 copias)',
+        'Clave Única de Registro de Población (CURP)',
+        'Certificado de estudios de Licenciatura',
+      ],
+      contacto: {
+        telefonos: ['2299 31 44 11', '2293 97 87 28'],
+        ubicacion: 'Arista #966, Esquina Madero, Colonia Centro',
+        horarios: 'Lunes a sábado de 9:00 a 17:30 horas',
+      },
+    }
   }
 ];
 

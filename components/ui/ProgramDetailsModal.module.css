@@ -267,3 +267,330 @@
     font-size: 1.75rem;
   }
 }
+
+/* ---------------------------------------------------
+   VISTA POSGRADO — Encabezado diferenciado
+   --------------------------------------------------- */
+.headerPosgrado {
+  padding: 40px 40px 20px;
+  background: linear-gradient(135deg, rgba(26,58,110,0.08) 0%, rgba(232,160,32,0.06) 100%);
+  border-bottom: 1px solid rgba(26,58,110,0.08);
+}
+
+/* ---------------------------------------------------
+   LAYOUT GENERAL POSGRADO
+   --------------------------------------------------- */
+.posgradoLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.posgradoSection {
+  margin-bottom: 10px;
+  padding-top: 5px;
+}
+
+/* ---------------------------------------------------
+   PERFIL DE EGRESO — Burbujas con descripción
+   --------------------------------------------------- */
+.perfilBubblesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.perfilBubble {
+  background: linear-gradient(135deg, #f0f4ff 0%, #fefce8 100%);
+  border: 1px solid rgba(26,58,110,0.12);
+  border-radius: 16px;
+  padding: 18px 20px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.perfilBubble:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(26,58,110,0.10);
+}
+
+.perfilBubbleLabel {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--icaps-primario, #1a3a6e);
+  background: rgba(26,58,110,0.09);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.perfilBubbleDesc {
+  font-size: 0.88rem;
+  color: #444;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------------------------------------------------
+   DETALLES DEL PROGRAMA — Chips horizontales
+   --------------------------------------------------- */
+.detalleBubblesRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.detalleBubble {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  background: var(--icaps-fondo-suave, #f4f6fb);
+  border: 1px solid rgba(26,58,110,0.10);
+  border-radius: 14px;
+  padding: 14px 20px;
+  min-width: 140px;
+  flex: 1;
+  transition: transform 0.2s ease;
+}
+
+.detalleBubble:hover {
+  transform: translateY(-2px);
+}
+
+.detalleIcon {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.detalleLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+.detalleValue {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--icaps-primario, #1a3a6e);
+}
+
+/* ---------------------------------------------------
+   INVERSIÓN — Chips de costo + badge de descuento
+   --------------------------------------------------- */
+.inversionGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.inversionChip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--icaps-primario, #1a3a6e);
+  color: #fff;
+  border-radius: 16px;
+  padding: 14px 24px;
+  min-width: 130px;
+  text-align: center;
+}
+
+.inversionChipLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+
+.inversionChipAmount {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.inversionDescuento {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 1px solid rgba(232,160,32,0.35);
+  border-radius: 14px;
+  padding: 12px 18px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.inversionDescuento svg {
+  width: 18px;
+  height: 18px;
+  color: #b45309;
+  flex-shrink: 0;
+}
+
+.inversionDescuento span {
+  font-size: 0.87rem;
+  font-weight: 600;
+  color: #78350f;
+  line-height: 1.4;
+}
+
+/* ---------------------------------------------------
+   NOTA REQUISITOS
+   --------------------------------------------------- */
+.requisitosNote {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+/* ---------------------------------------------------
+   CONTACTO CARD
+   --------------------------------------------------- */
+.contactoCard {
+  background: var(--icaps-fondo-suave, #f4f6fb);
+  border: 1px solid rgba(26,58,110,0.08);
+  border-radius: 20px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactoTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--icaps-primario, #1a3a6e);
+  margin: 0;
+}
+
+.contactoItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contactoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.contactoItem svg {
+  width: 16px;
+  height: 16px;
+  color: var(--icaps-primario, #1a3a6e);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactoItem span,
+.contactoItem a {
+  font-size: 0.87rem;
+  color: #555;
+  line-height: 1.45;
+}
+
+.telLink {
+  display: block;
+  font-size: 0.87rem;
+  color: var(--icaps-primario, #1a3a6e);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.telLink:hover {
+  color: var(--icaps-acento, #e8a020);
+}
+
+/* ---------------------------------------------------
+   CTA FINAL POSGRADO
+   --------------------------------------------------- */
+.posgradoCta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--icaps-primario, #1a3a6e), #2a5298);
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.posgradoCta p {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+  font-style: italic;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px;
+  border-radius: 10px;
+  background: var(--icaps-acento, #e8a020);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.22s ease, transform 0.22s ease;
+  white-space: nowrap;
+}
+
+.ctaBtn:hover {
+  background: #ca8a04;
+  transform: translateY(-2px);
+}
+
+/* Responsive Posgrado */
+@media (max-width: 600px) {
+  .headerPosgrado {
+    padding: 30px 20px 16px;
+  }
+
+  .detalleBubblesRow {
+    flex-direction: column;
+  }
+
+  .detalleBubble {
+    min-width: unset;
+  }
+
+  .inversionGrid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .inversionChip {
+    min-width: unset;
+  }
+
+  .inversionDescuento {
+    min-width: unset;
+  }
+
+  .posgradoCta {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

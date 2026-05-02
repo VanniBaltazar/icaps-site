@@ -9,8 +9,7 @@
   padding-top: 5rem; /* Space for header */
 }
 
-.hero::before {
-  content: '';
+.parallaxBg {
   position: absolute;
   inset: 0;
   background-image: url('/images/logoneon.png');
@@ -19,12 +18,9 @@
   background-repeat: no-repeat;
   opacity: 0.35; /* Adjusted transparency for a "watermark" effect */
   z-index: 0;
-  animation: subtleZoom 30s ease-in-out infinite alternate;
-}
-
-@keyframes subtleZoom {
-  from { transform: scale(1.05); }
-  to { transform: scale(1.15); }
+  height: 130%; /* More height for a larger parallax range */
+  top: -15%; /* Centered vertically with the extra height */
+  will-change: transform;
 }
 
 .overlay {
