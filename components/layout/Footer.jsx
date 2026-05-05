@@ -74,6 +74,7 @@ export default function Footer() {
             <li><a href="#about">Nosotros</a></li>
             <li><a href="#programas">Programas</a></li>
             <li><a href="#galeria">Campus</a></li>
+            <li><a href="https://profe-app.vercel.app/" target="_blank" rel="noopener noreferrer">Herramienta docente</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </nav>
