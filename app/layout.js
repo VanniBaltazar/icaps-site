@@ -4,6 +4,9 @@ export const metadata = {
   title: "ICAPS Sede Madero | Escuela, Preparatoria y Universidad en Veracruz",
   description: "ICAPS Sede Madero es tu mejor opción de escuela en Veracruz. Ofrecemos educación de excelencia: Bachillerato, Preparatoria y Licenciaturas en Administración, Derecho y Psicopedagogía. ¡Inscríbete hoy!",
   keywords: "Escuela en Veracruz, Preparatoria en Veracruz, Universidad en Veracruz, Bachillerato en Veracruz, Licenciaturas en Veracruz, ICAPS, Educación, Madero",
+  icons: {
+    icon: "/logo.png",
+  },
   alternates: {
     canonical: 'https://icaps-madero.edu.mx', // Replace with actual domain when available
   },

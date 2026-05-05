@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './Testimonials.module.css';
+import { createTimeline, stagger } from '../../lib/anime';
 
 export default function Testimonials() {
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const gridRef = useRef(null);
+
   const testimonials = [
     {
       text: "Estudiar en ICAPS me dio las herramientas prácticas y teóricas para insertarme rápidamente en el mercado laboral. Los profesores son excelentes.",
@@ -23,17 +29,63 @@ export default function Testimonials() {
     }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const tl = createTimeline({
+              defaults: {
+                ease: 'outExpo',
+                duration: 1000,
+              }
+            });
+
+            tl.add(titleRef.current, {
+              opacity: [0, 1],
+              translateY: [30, 0],
+              delay: 100,
+            })
+            .add(subtitleRef.current, {
+              opacity: [0, 1],
+              translateY: [20, 0],
+            }, '-=800')
+            .add(`.${styles.card}`, {
+              opacity: [0, 1],
+              scale: [0.9, 1],
+              translateY: [30, 0],
+              delay: stagger(200),
+            }, '-=600');
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section aria-label="Testimonios de alumnos de nuestra escuela en Veracruz" className={`section ${styles.testimonialsSection}`}>
+    <section ref={sectionRef} aria-label="Testimonios de alumnos de nuestra escuela en Veracruz" className={`section ${styles.testimonialsSection}`}>
       <div className="container">
-        <h2 className="section-title">Testimonios de Egresados</h2>
-        <p className="section-subtitle">
+        <h2 ref={titleRef} className="section-title" style={{ opacity: 0 }}>Testimonios de Egresados</h2>
+        <p ref={subtitleRef} className="section-subtitle" style={{ opacity: 0 }}>
           Nuestra mejor carta de presentación son los casos de éxito de nuestros estudiantes y egresados.
         </p>
 
-        <div className={styles.grid}>
+        <div ref={gridRef} className={styles.grid}>
           {testimonials.map((testimonio, index) => (
-            <div key={index} className={styles.card}>
+            <div key={index} className={styles.card} style={{ opacity: 0 }}>
               <div className={styles.quoteIcon}>"</div>
               <p className={styles.text}>{testimonio.text}</p>
               <div className={styles.author}>

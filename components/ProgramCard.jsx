@@ -3,42 +3,9 @@ import React, { useRef, useEffect, useState } from 'react';
 import ProgramDetailsModal from './ui/ProgramDetailsModal';
 
 export default function ProgramCard({ title, level, description, schedules, icon, iconColorClass, delayIndex, detailedInfo }) {
+  // Old observer removed in favor of Anime.js in parent component
   const cardRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    if (!('IntersectionObserver' in window)) {
-      if (cardRef.current) {
-        cardRef.current.classList.add('visible');
-      }
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('visible');
-            }, (delayIndex % 3) * 100);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    const currentRef = cardRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [delayIndex]);
 
   return (
     <>

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './InfoSede.module.css';
+import { createTimeline, stagger } from '../../lib/anime';
 
 const infoData = {
+  // ... (keeping infoData same)
   bachillerato: {
     title: 'Bachillerato',
     horarios: [
@@ -65,16 +67,71 @@ const infoData = {
 export default function InfoSede() {
   const [selectedProgram, setSelectedProgram] = useState('licenciaturas');
   const data = infoData[selectedProgram];
+  
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const selectorRef = useRef(null);
+  const cardsRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const tl = createTimeline({
+              defaults: {
+                ease: 'outExpo',
+                duration: 1000,
+              }
+            });
+
+            tl.add(titleRef.current, {
+              opacity: [0, 1],
+              translateY: [30, 0],
+              delay: 100,
+            })
+            .add(subtitleRef.current, {
+              opacity: [0, 1],
+              translateY: [20, 0],
+            }, '-=800')
+            .add(selectorRef.current, {
+              opacity: [0, 1],
+              scale: [0.98, 1],
+            }, '-=800')
+            .add(`.${styles.infoCard}`, {
+              opacity: [0, 1],
+              translateY: [40, 0],
+              delay: stagger(150),
+            }, '-=700');
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section aria-label="Ubicación y costos de nuestra escuela en Veracruz" className={`section ${styles.infoSection}`}>
+    <section ref={sectionRef} aria-label="Ubicación y costos de nuestra escuela en Veracruz" className={`section ${styles.infoSection}`}>
       <div className="container">
-        <h2 className="section-title">Información Sede Madero</h2>
-        <p className="section-subtitle">
+        <h2 ref={titleRef} className="section-title" style={{ opacity: 0 }}>Información Sede Madero</h2>
+        <p ref={subtitleRef} className="section-subtitle" style={{ opacity: 0 }}>
           Conoce nuestra excelente ubicación en el centro de Veracruz, nuestra oferta educativa específica, horarios, costos y requisitos de inscripción.
         </p>
 
-        <div className={styles.selectorWrapper}>
+        <div ref={selectorRef} className={styles.selectorWrapper} style={{ opacity: 0 }}>
           <div className={styles.selector}>
             {Object.keys(infoData).map((key) => (
               <button
@@ -88,9 +145,9 @@ export default function InfoSede() {
           </div>
         </div>
 
-        <div className={styles.grid}>
+        <div ref={cardsRef} className={styles.grid}>
           {/* Horarios/Programas */}
-          <article key={`horarios-${selectedProgram}`} className={`${styles.infoCard} ${styles.fadeAnim}`}>
+          <article key={`horarios-${selectedProgram}`} className={`${styles.infoCard} ${styles.fadeAnim}`} style={{ opacity: 0 }}>
             <div className={styles.cardHeader}>
               <h3>{selectedProgram === 'maestria' ? 'Horario de Clase' : (selectedProgram === 'bachillerato' ? 'Modalidades y Horarios' : 'Programas Disponibles')}</h3>
             </div>
@@ -109,7 +166,7 @@ export default function InfoSede() {
           </article>
 
           {/* Costes */}
-          <article key={`costos-${selectedProgram}`} className={`${styles.infoCard} ${styles.highlightCard} ${styles.fadeAnim}`}>
+          <article key={`costos-${selectedProgram}`} className={`${styles.infoCard} ${styles.highlightCard} ${styles.fadeAnim}`} style={{ opacity: 0 }}>
             <div className={styles.cardHeader}>
               <h3>Costos de Inversión</h3>
             </div>
@@ -127,7 +184,7 @@ export default function InfoSede() {
           </article>
 
           {/* Requisitos */}
-          <article key={`requisitos-${selectedProgram}`} className={`${styles.infoCard} ${styles.fadeAnim}`}>
+          <article key={`requisitos-${selectedProgram}`} className={`${styles.infoCard} ${styles.fadeAnim}`} style={{ opacity: 0 }}>
             <div className={styles.cardHeader}>
               <h3>Requisitos de Ingreso</h3>
             </div>
@@ -146,7 +203,7 @@ export default function InfoSede() {
           </article>
 
           {/* Ubicación (Fixed) */}
-          <article className={styles.infoCard}>
+          <article className={styles.infoCard} style={{ opacity: 0 }}>
             <div className={styles.cardHeader}>
               <h3>Ubicación y Contacto</h3>
             </div>

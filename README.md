@@ -10,14 +10,18 @@ El proyecto ICAPS constituye una solución integral de presencia digital diseña
 ## Especificaciones Técnicas
 
 ### Stack Tecnológico
-- **Framework:** Next.js 16 (App Router)
-- **Biblioteca de UI:** React 19
-- **Estilizado:** CSS Modules (Vanilla CSS) para un control granular del diseño y optimización de paquetes.
-- **Gestión de Estado:** Hooks nativos de React (useState, useEffect).
-- **Interatividad:** Intersection Observer API para gestión dinámica de elementos de interfaz.
+
+- **Framework:** Next.js 16 (App Router) para una renderización híbrida ultra rápida.
+- **Biblioteca de UI:** React 19, aprovechando las últimas mejoras en concurrencia y hooks.
+- **Animaciones:** Anime.js v4 para transiciones fluidas, efectos de scroll parallax y micro-interacciones premium.
+- **Estilizado:** CSS Modules & Vanilla CSS moderno, garantizando zero-runtime overhead y máxima compatibilidad.
+- **SEO & Datos Estructurados:** Implementación avanzada de metadatos dinámicos y JSON-LD (Schema.org) para optimización educativa.
+- **Optimización de Assets:** Uso de `next/image` para carga adaptativa y lazy loading nativo.
 
 ### Estructura de Directorios
+
 El proyecto sigue una organización modular para facilitar el mantenimiento y la escalabilidad:
+
 - `/app`: Configuración de rutas, layouts globales y estilos base.
 - `/components`: Repositorio de componentes reutilizables, subdividido en:
   - `/layout`: Elementos estructurales como Header y Footer.
@@ -25,21 +29,39 @@ El proyecto sigue una organización modular para facilitar el mantenimiento y la
   - `/ui`: Elementos atómicos de interfaz.
 - `/public`: Activos estáticos, imágenes y recursos multimedia.
 
-## Funcionalidades Implementadas
+## Anatomía de la Landing Page
 
-1. **Arquitectura de Componentes de Página:** Implementación de secciones modulares (Hero, Stats, About, Programas, InfoSede, Testimonials, Gallery, Contact, Map) que permiten una navegación fluida.
-2. **Sistema de Contacto Flotante:** Integración de un botón de WhatsApp con lógica de visibilidad inteligente basada en el scroll y la intersección con la sección de contacto para evitar redundancia visual.
-3. **Navegación Persistente:** Header optimizado para acceso rápido a las secciones clave y ScrollToTop para mejorar la usabilidad en dispositivos móviles.
-4. **Visualización de Oferta Académica:** Grilla dinámica de programas educativos con tarjetas de información detallada.
-5. **Infraestructura de Datos Geográficos:** Integración de mapas para la localización precisa de sedes.
+La página principal ha sido diseñada siguiendo un embudo de conversión educativo, estructurada en las siguientes secciones:
+
+1. **Header:** Navegación persistente con efecto de transparencia adaptativo al scroll.
+2. **Hero Section:** Impacto visual inmediato con animaciones de entrada, efectos parallax y llamados a la acción (CTAs) claros.
+3. **Stats:** Visualización de métricas clave que refuerzan la autoridad de la institución.
+4. **About:** Reseña histórica y visión pedagógica de la Sede Madero.
+5. **Programas Académicos:** Grilla interactiva que detalla la oferta en Bachillerato, Licenciaturas y Maestrías.
+6. **Info Sede:** Información detallada sobre las instalaciones, horarios y beneficios exclusivos.
+7. **Testimonios:** Prueba social mediante experiencias de alumnos y egresados.
+8. **Galería:** Recorrido visual por el campus y las actividades académicas.
+9. **Contacto:** Formulario integrado con validaciones y accesos directos.
+10. **Mapa:** Integración geográfica interactiva para localización de la sede.
+11. **Footer:** Información legal, enlaces rápidos y redes sociales.
+12. **Utilidades:** Botón de WhatsApp flotante inteligente y Scroll-to-Top para navegación optimizada.
+
+## Funcionalidades Clave
+
+1. **Arquitectura Modular:** Componentes totalmente desacoplados que permiten actualizaciones independientes.
+2. **Sistema de Contacto Inteligente:** Botón de WhatsApp con lógica de visibilidad basada en el contexto del usuario.
+3. **Animaciones Deterministas:** Secuencias de entrada sincronizadas para una experiencia de usuario premium.
+4. **Optimización Móvil:** Diseño 100% responsivo con menús adaptativos y táctiles.
 
 ## Guía de Instalación y Desarrollo
 
 ### Requisitos Previos
+
 - Node.js (versión 20.x o superior recomendada)
 - Gestor de paquetes npm o yarn
 
 ### Pasos para la Ejecución
+
 1. Clonar el repositorio.
 2. Instalar dependencias: `npm install`.
 3. Iniciar el entorno de desarrollo: `npm run dev`.
@@ -72,4 +94,5 @@ Con el objetivo de transformar esta landing page en un ecosistema web completo y
 10. **Despliegue y CI/CD Automatizado:** Implementar flujos de integración y despliegue continuo mediante plataformas como Vercel o AWS Amplify, asegurando entornos de staging para pruebas antes de cada lanzamiento a producción.
 
 ---
-**Desarrollado con estándares de excelencia por GioMath**
+
+**Desarrollado con estándares de excelencia por GioMath en2026**
